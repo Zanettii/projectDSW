@@ -46,8 +46,8 @@ const Sidebar = () => {
                   navElements.map((navElement) => (
                     <Link href={navElement.href} key={navElement.title}>
 
-                      <div className={`flex items-center py-2.5 pl-4 pr-0 rounded transition duration-300 hover:bg-gray-700
-                       hover:text-blue-400 ${isCollapsed ? "justify-center": ''} `}>
+                      <div className={`flex items-center py-2.5 pl-4 pr-0 rounded transition duration-300 hover:bg-accent
+                       hover:text-text-400 ${isCollapsed ? "justify-center": ''} `}>
 
                         {navElement.icon}
 

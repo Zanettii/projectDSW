@@ -12,7 +12,7 @@
     --text-title: rgb(255, 255, 255);
     --background: rgb(227, 244, 252);
     --primary: rgb(121, 60, 190);
-    --secondary: rgba(135, 88, 194, 0.6);
+    --secondary: rgba(155, 93, 231, 0.25);
     --accent: rgb(161, 15, 169);
 }
 
@@ -24,7 +24,7 @@
         --background: rgb(3, 20, 28);
         --primary: rgba(34, 4, 68, 0.7);
         --secondary: rgba(48, 12, 90, 0.6);
-        --accent: rgb(233, 86, 240);
+        --accent: rgb(161, 15, 169);
     }
 
   body {
@@ -32,14 +32,28 @@
     color: var(--text);
 
   }
-  main {
-    @apply h-full min-h-screen  flex-1 overflow-y-auto overflow-x-hidden  p-6;
+  
+}
+main {
+  @apply h-full min-h-screen  flex-1 overflow-y-auto overflow-x-hidden  p-6;
 
-  }
-  .bg-secondary {
-    background-color: var(--secondary);
-  }
-}}
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.bg-text-title {
+  background-color: var(--text-title);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-background{
+  background-color: var(--background);
+}
+}
 
 
 @layer utilities {

@@ -1,1 +1,7 @@
-{}
+{
+  "/ranking/page": "app/ranking/page.js",
+  "/page": "app/page.js",
+  "/leitura-atual/page": "app/leitura-atual/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js",
+  "/login/page": "app/login/page.js"
+}
