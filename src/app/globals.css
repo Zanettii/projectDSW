@@ -10,8 +10,8 @@
   :root {
     --text: rgb(0, 0, 0);
     --background: rgb(227, 244, 252);
-    --primary: rgb(81, 56, 109);
-    --secondary: rgba(75, 51, 104, 0.6);
+    --primary: rgb(121, 60, 190);
+    --secondary: rgba(135, 88, 194, 0.6);
     --accent: rgb(161, 15, 169);
 }
 
