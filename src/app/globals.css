@@ -9,6 +9,7 @@
 
   :root {
     --text: rgb(0, 0, 0);
+    --text-title: rgb(255, 255, 255);
     --background: rgb(227, 244, 252);
     --primary: rgb(121, 60, 190);
     --secondary: rgba(135, 88, 194, 0.6);
@@ -19,6 +20,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --text: rgb(255, 255, 255);
+        --text-title: rgb(255, 255, 255);
         --background: rgb(3, 20, 28);
         --primary: rgba(34, 4, 68, 0.7);
         --secondary: rgba(48, 12, 90, 0.6);

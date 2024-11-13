@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between g-gray-800 border-white p-4">
         {/* Logo e nome */}
         {!isCollapsed && (
-          <h1 className="text-3xl font-bold text-[var(--text)] flex items-center">
+          <h1 className="text-3xl font-bold text-[var(--text-title)] flex items-center">
             <Link href="/" className="flex items-center">
               <img 
                 src="/logo.png"  // Caminho para o seu logo
