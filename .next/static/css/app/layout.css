@@ -511,6 +511,7 @@ video {
     --primary: rgb(121, 60, 190);
     --secondary: rgba(155, 93, 231, 0.25);
     --accent: rgb(161, 15, 169);
+
   }
 
   .dark {
@@ -521,6 +522,7 @@ video {
     --primary: rgba(34, 4, 68, 0.7);
     --secondary: rgba(48, 12, 90, 0.6);
     --accent: rgb(161, 15, 169);
+
   }
 
   .light {
@@ -531,6 +533,7 @@ video {
     --primary: rgb(121, 60, 190);
     --secondary: rgba(155, 93, 231, 0.25);
     --accent: rgb(161, 15, 169);
+
   }
 
   body {
@@ -795,11 +798,14 @@ video {
 .border-solid {
   border-style: solid;
 }
-.border-\[var\(--background\)\] {
-  border-color: var(--background);
-}
 .border-\[var\(--text\)\] {
   border-color: var(--text);
+}
+.border-\[var\(--text-title\)\] {
+  border-color: var(--text-title);
+}
+.border-\[var\(-background\)\] {
+  border-color: var(-background);
 }
 .border-gray-200 {
   --tw-border-opacity: 1;
@@ -816,18 +822,6 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-.border-\[var\(-text-title\)\] {
-  border-color: var(-text-title);
-}
-.border-\[var\(-background\)\] {
-  border-color: var(-background);
-}
-.border-\[var\(--text-sub\)\] {
-  border-color: var(--text-sub);
-}
-.border-\[var\(--text-title\)\] {
-  border-color: var(--text-title);
-}
 .bg-\[var\(--accent\)\] {
   background-color: var(--accent);
 }
@@ -843,10 +837,6 @@ video {
 .bg-accent {
   background-color: rgb(var(--accent));
 }
-.bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-}
 .bg-primary {
   background-color: rgb(var(--primary));
 }
@@ -856,6 +846,9 @@ video {
 }
 .bg-secondary {
   background-color: rgb(var(--secondary));
+}
+.bg-text-title {
+  background-color: rgb(var(--text-title));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -969,10 +962,6 @@ video {
 .text-accent {
   color: rgb(var(--accent));
 }
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
 .text-gray-100 {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
@@ -1075,14 +1064,8 @@ main {
   background-color: var(--accent);
 }
 
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+.hover\:bg-\[var\(--secondary\)\]:hover {
+  background-color: var(--secondary);
 }
 
 .hover\:bg-opacity-90:hover {

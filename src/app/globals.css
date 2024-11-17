@@ -15,6 +15,7 @@
     --primary: rgb(121, 60, 190);
     --secondary: rgba(155, 93, 231, 0.25);
     --accent: rgb(161, 15, 169);
+
   }
 
   .dark {
@@ -25,6 +26,7 @@
     --primary: rgba(34, 4, 68, 0.7);
     --secondary: rgba(48, 12, 90, 0.6);
     --accent: rgb(161, 15, 169);
+
   }
 
   .light {
@@ -35,6 +37,7 @@
     --primary: rgb(121, 60, 190);
     --secondary: rgba(155, 93, 231, 0.25);
     --accent: rgb(161, 15, 169);
+
   }
 
   body {

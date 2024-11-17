@@ -3,7 +3,6 @@ import './stileLogin.css';
 import CadastroLayout from './layout';
 
 export default function Page() {
-  // Estilos dinâmicos
   const backgroundStyle = {
     backgroundColor: 'var(--background)',
     color: 'var(--text)',

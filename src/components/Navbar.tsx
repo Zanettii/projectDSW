@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[var(--primary)] px-4 h-[65px] text-white shadow-lg">
-      <div className="flex items-center justify-between g-gray-800 border-white p-4 pl-0">
+      <div className="flex items-center justify-between g-[var(--secondary)] border-white p-4 pl-0">
         {/* Logo e nome */}
         {!isCollapsed && (
           <h1 className="text-3xl font-bold text-[var(--text-title)] flex items-center">
@@ -84,21 +84,21 @@ const Navbar = () => {
 
             {/* Menu suspenso de notificações */}
             {isNotificationsMenuOpen && (
-              <div className="absolute top-12 right-0 bg-white text-black rounded-lg shadow-lg w-80 py-2 z-10">
+              <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-80 py-2 z-10">
                 <div className="px-4 py-2 border-b">
                   <h3 className="text-lg font-bold">Notificações</h3>
                 </div>
-                <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">
                   <p>Nova mensagem de usuário.</p>
                 </div>
-                <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">
                   <p>Seu perfil foi atualizado.</p>
                 </div>
-                <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">
                   <p>Você ganhou uma medalha no ranking!</p>
                 </div>
                 <Link href="/notificacoes">
-                  <div className="px-4 py-2 text-center hover:bg-gray-100 cursor-pointer">Ver todas as notificações</div>
+                  <div className="px-4 py-2 text-center hover:bg-[var(--secondary)] cursor-pointer">Ver todas as notificações</div>
                 </Link>
               </div>
             )}
@@ -106,7 +106,7 @@ const Navbar = () => {
 
           {/* Menu de Perfil */}
           <div className="relative">
-            <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center cursor-pointer" onClick={toggleProfileMenu}>
+            <div className="w-10 h-10 bg-text-title rounded-full flex items-center justify-center cursor-pointer" onClick={toggleProfileMenu}>
               <img 
                 src={profileImage} // A imagem do perfil é carregada aqui
                 alt="Perfil"
@@ -116,15 +116,15 @@ const Navbar = () => {
 
             {/* Menu suspenso de perfil */}
             {isProfileMenuOpen && (
-              <div className="absolute top-12 right-0 bg-white text-black rounded-lg shadow-lg w-40 py-2">
+              <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-40 py-2">
                 <Link href="/perfil">
-                  <div className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Perfil</div>
+                  <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Perfil</div>
                 </Link>
                 <Link href="/configuracoes">
-                  <div className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Configurações</div>
+                  <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Configurações</div>
                 </Link>
                 <Link href='/login'>
-                  <div className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Sair</div>
+                  <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Sair</div>
                 </Link>
               </div>
             )}

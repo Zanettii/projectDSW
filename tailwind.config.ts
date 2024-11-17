@@ -18,6 +18,7 @@ const config: Config = {
         'accent': 'rgb(var(--accent))',
         'text-sub': 'rgb(var(--text-sub))',
         'text-title': 'rgb(var(--text-title))',
+        
        },
       fontFamily: {
         sans: ['Arial', 'Helvetica', 'sans-serif'], // Define sua fonte padrão
