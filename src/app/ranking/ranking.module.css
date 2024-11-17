@@ -1,86 +1,237 @@
-/* projectDSW/src/app/ranking/ranking.module.css */
-.container {
-  padding: 20px;
-  background-color: var(--background);
-  color: var(--text);
+/* ranking.module.css */
+
+/* Variáveis de cor para temas claros e escuros */
+
+.dark {
+  --text: rgb(255, 255, 255);
+  --text-sub: rgb(153, 150, 156);
+  --text-title: rgb(255, 255, 255);
+  --background: rgb(3, 20, 28);
+  --primary: rgba(34, 4, 68, 0.7);
+  --secondary: rgba(48, 12, 90, 0.6);
+  --accent: rgb(161, 15, 169);
 }
 
+/* Container geral */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-top: 2px;
+  overflow-y: fixed;
+  background-color: var(--secondary);
+  color: var(--text);
+  border-radius: 8px;
+  height: 490px;
+
+}
+
+/* Navegação Principal - Menu flutuante */
+.navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--primary);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  width: 100%;
+  transition: top 0.3s ease-in-out;
+  border-radius: 8px;
+  border-bottom: 0px solid var(--secondary);
+}
+
+/* Seção das Categorias (Lado esquerdo) */
 .header {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
+  gap: 2rem;
+  align-items: center;
 }
 
+/* Estilo para os botões de categoria */
 .categoryButton {
-  padding: 20px 40px;
-  font-size: 18px;
-  background-color: var(--secondary);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid var(--text);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
   color: var(--text);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
+.categoryButton:hover {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+/* Opção Selecionada - Categoria */
 .selectedCategory {
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: var(--text-title);
+  border-color: var(--accent);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Seção do Tipo de Ranking (Lado direito) */
 .rankingTypeSelector {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  gap: 1rem;
+  align-items: center;
 }
 
+/* Estilo para os botões de tipo de ranking */
 .rankingTypeButton {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: var(--secondary);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid var(--text);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
   color: var(--text);
-  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
+.rankingTypeButton:hover {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+/* Opção Selecionada - Tipo de Ranking */
 .selectedRankingType {
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: var(--text-title);
+  border-color: var(--accent);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Rankings */
 .rankingsContainer {
-  display: flex;
-  justify-content: center;
+  margin-top: 1px;
+  padding: 0 1rem;
+  max-height: 380px;
 }
 
 .rankings {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 100%; /* Impede que a lista ultrapasse a altura máxima definida */
+  overflow-y: auto;
 }
 
 .rankingItem {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: var(--secondary);
-  border-radius: 5px;
+  padding: 1rem;
+  border: 1px solid var(--text-sub);
+  border-radius: 4px;
+  background-color: var(--background);
+  transition: transform 0.2s ease-in-out;
+}
+
+.rankingItem:hover {
+  transform: translateY(-4px);
 }
 
 .topRanking {
   background-color: var(--accent);
+  font-weight: bold;
   color: var(--text-title);
 }
 
 .rank {
-  font-weight: bold;
+  flex: 0 0 10%;
+  color: var(--text-sub);
 }
 
 .name {
-  flex-grow: 1;
+  flex: 1;
   text-align: left;
-  margin-left: 10px;
+  color: var(--text);
 }
 
 .score {
+  flex: 0 0 15%;
+  text-align: right;
+  color: var(--text);
+}
+
+
+/* Container fixo (Podio) */
+.container-podio {
+  flex: 1; /* O Podio ocupará metade da largura */
+  position: fixed;
+  top: 5rem; /* Distância da parte superior para não sobrepor o menu */
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: var(--primary);
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Estilo para o Podio (com conteúdo fixo) */
+.podio {
+  background-color: var(--accent);
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-title);
+  font-size: 1.2rem;
+}
+
+/* Estilo para a posição do usuário */
+.user-posicao {
+  background-color: var(--secondary);
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-title);
+  font-size: 1rem;
+}
+
+/* Rankings Roláveis */
+.rankingsContainer {
+  flex: 1; 
+  margin-left: 50%; 
+  padding: 1rem;
+  overflow-y: auto; 
+  position: relative;
+  height: calc(100vh - 5rem); 
+}
+
+.rankings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.rank {
+  flex: 0 0 10%;
+  color: var(--text-sub);
+}
+
+.name {
+  flex: 1;
+  text-align: left;
+  color: var(--text);
+}
+
+.score {
+  flex: 0 0 15%;
+  text-align: right;
+  color: var(--text);
+}
+
+/* ranking.module.css */
+.highlightUser {
+  background-color: #f0f0f0; /* Cor de fundo destacada */
+  border: 2px solid #ff9900; /* Borda laranja */
   font-weight: bold;
 }
