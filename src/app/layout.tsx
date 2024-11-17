@@ -16,7 +16,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const pathname = usePathname();
-  const isAuthPage = pathname?.includes('/cadastro') || pathname?.includes('/login');
+  const isAuthPage = pathname?.includes('/cadastro') || pathname?.includes('/login')|| pathname?.includes('/not-found');
   return (
     <html lang="pt-br">
       <body className='flex flex-col h-screen'>
