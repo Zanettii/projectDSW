@@ -1,0 +1,86 @@
+/* projectDSW/src/app/ranking/ranking.module.css */
+.container {
+  padding: 20px;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.categoryButton {
+  padding: 20px 40px;
+  font-size: 18px;
+  background-color: var(--secondary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.selectedCategory {
+  background-color: var(--primary);
+  color: var(--text-title);
+}
+
+.rankingTypeSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rankingTypeButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--secondary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--text);
+  margin: 0 10px;
+}
+
+.selectedRankingType {
+  background-color: var(--primary);
+  color: var(--text-title);
+}
+
+.rankingsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.rankings {
+  width: 100%;
+}
+
+.rankingItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--secondary);
+  border-radius: 5px;
+}
+
+.topRanking {
+  background-color: var(--accent);
+  color: var(--text-title);
+}
+
+.rank {
+  font-weight: bold;
+}
+
+.name {
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.score {
+  font-weight: bold;
+}
