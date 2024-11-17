@@ -1,11 +1,11 @@
 "use client";
 import React from 'react';
 
+
 export default function Page() {
   return (
     <div className="flex rounded-lg p-4 bg-secondary ">
-      {/* Sidebar de perfil */}
-      <section id="perfil" className="w-1/3 flex flex-col items-center pt-12 border-r-2 border-gray-300">
+      <section id="perfil" className="w-1/3 flex flex-col items-center pt-12 border-r-2 border-[var(-background)]">
         <div className="text-center">
           <img
             src="/foto.png"
@@ -13,7 +13,7 @@ export default function Page() {
             className="mb-1 w-44 h-44 rounded-full border-8 border-[var(--text)]"
           />
           <h3 className="mt-1 mb-1 text-xl font-semibold">João da Silva</h3>
-          <h4 className="text-gray-500">@joaosilva</h4>
+          <h4 className="text-[var(--text-sub)]">@joaosilva</h4>
         </div>
 
         <div className="flex gap-5 py-5 text-center">

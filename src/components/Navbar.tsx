@@ -2,17 +2,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AiOutlineSearch, AiOutlineBell } from "react-icons/ai";
+import ThemeSwitcher from "./Elementos";
 
 const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false); // Controla a visibilidade do menu de perfil
   const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false); // Controla o menu de notificações
 
-  // Exemplo de URL da imagem do perfil, substitua com a lógica para carregar dinamicamente.
-  const profileImage = "/foto.png"; // Substitua pelo URL ou caminho da imagem do perfil
+  const profileImage = "/foto.png"; 
 
-  const handleSearchChange = (e: any) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
@@ -22,22 +22,28 @@ const Navbar = () => {
   };
 
   const toggleProfileMenu = () => {
+    if (isNotificationsMenuOpen) {
+      setIsNotificationsMenuOpen(false);
+    }
     setIsProfileMenuOpen(!isProfileMenuOpen);
   };
 
   const toggleNotificationsMenu = () => {
+    if (isProfileMenuOpen) {
+      setIsProfileMenuOpen(false);
+    }
     setIsNotificationsMenuOpen(!isNotificationsMenuOpen);
   };
 
   return (
     <div className="bg-[var(--primary)] px-4 h-[65px] text-white shadow-lg">
-      <div className="flex items-center justify-between g-gray-800 border-white p-4">
+      <div className="flex items-center justify-between g-gray-800 border-white p-4 pl-0">
         {/* Logo e nome */}
         {!isCollapsed && (
           <h1 className="text-3xl font-bold text-[var(--text-title)] flex items-center">
             <Link href="/" className="flex items-center">
               <img 
-                src="/logo.png"  // Caminho para o seu logo
+                src="/logo.png"   
                 alt="Logo" 
                 className="mr-2 w-8 h-8"  // Define o tamanho do logo
               />
@@ -58,14 +64,18 @@ const Navbar = () => {
               className="pl-10 pr-4 py-2 rounded-full bg-[var(--secondary)] text-text focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
             <AiOutlineSearch
+              aria-label="Pesquisar"
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-500 cursor-pointer"
               onClick={handleSearch}
             />
           </div>
-
+          <div>
+            <ThemeSwitcher />
+          </div>
           {/* Ícone de Notificação */}
           <div className="relative">
             <AiOutlineBell 
+              aria-label="Notificações"
               className="w-6 h-6 text-text cursor-pointer"
               onClick={toggleNotificationsMenu} // Toca para alternar o menu de notificações
             />
@@ -114,7 +124,7 @@ const Navbar = () => {
                   <div className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Configurações</div>
                 </Link>
                 <Link href='/login'>
-                <div className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Sair</div>
+                  <div className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Sair</div>
                 </Link>
               </div>
             )}

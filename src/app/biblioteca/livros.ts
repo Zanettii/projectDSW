@@ -1,3 +1,11 @@
+export  interface Livro {
+  titulo: string;
+  descricao: string;
+  autor: string;
+  paginas: string;
+  genero: string;
+  capa: string;
+}
 interface Categoria {
     titulo: string;
     livros: Livro[];

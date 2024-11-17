@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/Sidebar.tsx", "src/app/layout.js"  ],
+, "src/components/Sidebar.tsx", "src/app/layout.tsxxx"  ],
   "exclude": [
     "node_modules"
   ]

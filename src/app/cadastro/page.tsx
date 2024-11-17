@@ -1,66 +1,104 @@
 import React from 'react';
+import './stileLogin.css'; 
+import CadastroLayout from './layout';
 
 export default function Page() {
+  // Estilos dinâmicos
+  const backgroundStyle = {
+    backgroundColor: 'var(--background)',
+    color: 'var(--text)',
+  };
+  const secondaryBackground = { backgroundColor: 'var(--secondary)' };
+
   return (
-    <div style={{ display: 'flex', height: '100vh', margin: '0', padding: '0',  background:'var(--background)',color:'var(--text)'}}>
-      
-      <style>
-        {`
-          body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: Arial, Helvetica, sans-serif;
-          }
-        `}
-      </style>
-      
-      
-      <div style={{ flex: 1, display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'var(--background)', borderBottomRightRadius:'100px',borderTopRightRadius:'100px' }}>
-
-        <h1 style={{color:'var(--text)', marginBottom:'3px'}}>Seja Bem Vindo(a)!</h1>
-        <p style={{color:'var(--text)', marginBottom:'3px',marginTop:'5px'}}>Você é novo por aqui? Não se preocupe, o cadastro é bem simples!</p>
-        
-        <img src="logo.png" alt="Logo" style={{ width: '400px', height: '400px' }} />
-
+    <CadastroLayout>
+    <div className="flex flex-col sm:flex-row h-screen m-0 p-0" style={backgroundStyle}>
+      {/* Lado esquerdo */}
+      <div
+        className="flex-1 flex flex-col justify-center items-center rounded-tr-md rounded-br-md"
+        style={secondaryBackground}
+      >
+        <h1 className="text-[var(--text)] mb-2 text-xl font-bold">
+          Seja Bem Vindo(a)!
+        </h1>
+        <p className="text-[var(--text)] mt-1 mb-2 text-sm">
+          Você é novo por aqui? Não se preocupe, o cadastro é bem simples!
+        </p>
+        <img
+          src="logo.png"
+          alt="Logotipo da empresa" // Melhorar a acessibilidade
+          className="w-96 h-96 object-contain"
+        />
       </div>
-      
 
-      <div style={{ flex: 1,display:'flex', alignItems:'center', justifyContent:'center'}}>
+      {/* Lado direito */}
+      <div className="flex-1 flex items-center justify-center">
+        <div className="max-w-sm w-full p-5 rounded-md">
+          <h1 className="text-center mb-4 text-xl font-bold">Cadastre-se</h1>
+          <p className="text-center mt-1 text-sm">Bem vindo(a)!</p>
 
-        <div style={{ maxWidth: '400px', width: '100%', padding: '20px', alignContent:'center', borderRadius:'5px'}}>
-          
-            <h1 style={{ textAlign: 'center', marginBottom:'4px' }}>Cadastre-se</h1>
-            <p style={{ textAlign: 'center', marginTop:'4px' }}>Bem vindo(a)!</p>
+          <form>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Nome"
+                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                required
+              />
+            </div>
 
-            <form>
+            <div className="mb-4">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                required
+              />
+            </div>
 
-              <div style={{ marginBottom: '15px', alignItems:'center' }}>
-                <input type="name" id="name" name="name" placeholder="Nome" style={{ width: '95%', padding: '10px', borderRadius: '4px', border: '1px solid var(--text)',alignItems:'center'}} required />
-              </div>
+            <div className="mb-4">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Senha"
+                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                required
+              />
+            </div>
 
-              <div style={{ marginBottom: '15px', alignItems:'center' }}>
-                <input type="email" id="email" name="email" placeholder="Email" style={{ width: '95%', padding: '10px', borderRadius: '4px', border: '1px solid var(--text)',alignItems:'center'}} required />
-              </div>
+            <div className="mb-5">
+              <input
+                type="password"
+                id="password-confirm"
+                name="password-confirm"
+                placeholder="Confirme a Senha"
+                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                required
+              />
+            </div>
 
-              <div style={{ marginBottom: '15px' }}>
-                <input type="password" id="password" name="password" placeholder="Senha" style={{ width: '95%', padding: '10px', borderRadius: '4px', border: '1px solid var(--text)' }} required />
-              </div>
+            <button
+              type="submit"
+              className="w-full py-3 bg-[var(--primary)] text-white rounded font-semibold hover:bg-opacity-90 transition"
+            >
+              Cadastrar
+            </button>
+          </form>
 
-              <div style={{ marginBottom: '20px' }}>
-                <input type="password" id="password-confirm" name="password-confirm" placeholder="Confirme a Senha" style={{ width: '95%', padding: '10px', borderRadius: '4px', border: '1px solid var(--text)' }} required />
-              </div>
-
-              <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: 'var(--primary)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize:'16px', fontWeight:'600' }}>Cadastrar</button>
-
-            </form>
-
-            <p style={{ textAlign: 'center', marginTop: '30px', fontSize:'14px' }}>
-              Já tem uma conta? <a href="/login" style={{ color: 'var(--accent)', textDecoration: 'none' }}>Login</a>
-            </p>
-
-          </div>
+          <p className="text-center mt-7 text-sm">
+            Já tem uma conta?{' '}
+            <a href="/login" className="text-[var(--accent)] hover:underline">
+              Login
+            </a>
+          </p>
+        </div>
       </div>
     </div>
+    </CadastroLayout>
   );
 }

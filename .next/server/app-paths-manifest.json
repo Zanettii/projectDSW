@@ -1,5 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/biblioteca/page": "app/biblioteca/page.js",
-  "/leitura-atual/page": "app/leitura-atual/page.js"
+  "/leitura-atual/page": "app/leitura-atual/page.js",
+  "/page": "app/page.js",
+  "/ranking/page": "app/ranking/page.js",
+  "/perfil/page": "app/perfil/page.js",
+  "/cadastro/page": "app/cadastro/page.js"
 }

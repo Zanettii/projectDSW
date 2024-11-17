@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .font-body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  :root {
+    --text: rgb(0, 0, 0);
+    --text-title: rgb(255, 255, 255);
+    --background: rgb(227, 244, 252);
+    --primary: rgb(121, 60, 190);
+    --secondary: rgba(155, 93, 231, 0.25);
+    --accent: rgb(161, 15, 169);
+
+    
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: rgb(255, 255, 255);
+        --text-title: rgb(255, 255, 255);
+        --background: rgb(3, 20, 28);
+        --primary: rgba(34, 4, 68, 0.7);
+        --secondary: rgba(48, 12, 90, 0.6);
+        --accent: rgb(161, 15, 169);
+    }
+  
+}
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+
+}
+
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.bg-text-title {
+  background-color: var(--text-title);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-background{
+  background-color: var(--background);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .flex-col {
+    flex-direction: column;
+  }
+}

@@ -1,7 +1,8 @@
 'use client';
-import Link from 'next/link';
+
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import './stileLogin.css';
 
 export default function Page() {
   const router = useRouter();
@@ -12,54 +13,84 @@ export default function Page() {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh', margin: '0', padding: '0',  background:'var(--background)', color:'var(--text)'}}>
-      
-      <style>
-        {`
-          body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: Arial, Helvetica, sans-serif;
-          }
-        `}
-      </style>
+    <div className="flex h-screen m-0 p-0 bg-[var(--background)] text-[var(--text)]">
+      <style>styled</style>
 
-      <div style={{ flex: 1, display:'flex', alignItems:'center', justifyContent:'center' }}>
-        <div style={{ maxWidth: '400px', width: '100%', padding: '20px', alignContent:'center', borderRadius:'5px' }}>
-          <h1 style={{ textAlign: 'center', marginBottom:'4px' }}>Login</h1>
-          <p style={{ textAlign: 'center', marginTop:'4px' }}>Bem-vindo(a) de volta</p>
+      <div className="flex-1 flex items-center justify-center">
+        <div className="max-w-sm w-full p-5 rounded-md">
+          <h1 className="text-center mb-4 text-xl font-bold">Login</h1>
+          <p className="text-center mt-1 text-sm">Bem-vindo(a) de volta</p>
 
-          <form >
-            <div style={{ marginBottom: '15px', alignItems:'center' }}>
-              <input type="email" id="email" name="email" placeholder="Seu email" style={{ width: '95%', padding: '10px', borderRadius: '4px', border: '1px solid #ddd', alignItems:'center' }} required />
+          <form>
+            <div className="mb-4">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Seu email"
+                className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                required
+              />
             </div>
 
-            <div style={{ marginBottom: '10px' }}>
-              <input type="password" id="password" name="password" placeholder="Sua senha" style={{ width: '95%', padding: '10px', borderRadius: '4px', border: '1px solid #ddd' }} required />
+            <div className="mb-4">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Sua senha"
+                className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                required
+              />
             </div>
 
-            <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent:'space-between' }}>
-              <div style={{ justifyContent:'center' }}>
-                <input type="checkbox" id="remember-me" name="remember-me" style={{ marginRight: '10px', transform: 'scale(1)' }} />
-                <label htmlFor="remember-me" style={{ fontSize:'15px' }}>Lembre-se de mim</label>
+            <div className="mb-5 flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="remember-me"
+                  name="remember-me"
+                  className="mr-2"
+                />
+                <label htmlFor="remember-me" className="text-sm">
+                  Lembre-se de mim
+                </label>
               </div>
-              <a href="/recuperacaoSenha" style={{ color: '#2596be', textDecoration: 'none', fontSize:'15px' }}>Esqueci minha senha</a>
+              <a
+                href="/recuperacaoSenha"
+                className="text-[var(--accent)] text-sm hover:underline"
+              >
+                Esqueci minha senha
+              </a>
             </div>
 
-            <button onClick={direcionar} type="submit" style={{ width: '100%', padding: '10px', backgroundColor: 'var(--primary)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize:'16px', fontWeight:'600' }}>Entrar</button>
+            <button
+              onClick={direcionar}
+              type="submit"
+              className="w-full py-3 bg-[var(--accent)] text-white rounded font-semibold hover:bg-opacity-90"
+            >
+              Entrar
+            </button>
           </form>
 
-          <p style={{ textAlign: 'center', marginTop: '30px', fontSize:'14px' }}>
-            Não tem uma conta? <a href="/cadastro" style={{ color: '#2596be', textDecoration: 'none' }}>Cadastre-se</a>
+          <p className="text-center mt-7 text-sm">
+            Não tem uma conta?{' '}
+            <a
+              href="/cadastro"
+              className="text-[var(--accent)] hover:underline"
+            >
+              Cadastre-se
+            </a>
           </p>
         </div>
       </div>
-      
-      <div style={{ flex: 1, display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'var(--secondary)', borderBottomLeftRadius:'100px', borderTopLeftRadius:'100px' }}>
-        <h1 style={{ color:'#fff', marginBottom:'3px' }}>Hello, amigo!</h1>
-        <p style={{ color:'#fff', marginBottom:'3px', marginTop:'5px' }}>Ficamos felizes em tê-lo(a) aqui conosco novamente!</p>
-        <img src="logo.png" alt="Logo" style={{ width: '400px', height: '400px' }} />
+
+      <div className="flex-1 flex flex-col justify-center items-center bg-[var(--secondary)] rounded-bl-md rounded-tl-md">
+        <h1 className="text-white mb-3 text-xl font-bold">Hello, amigo!</h1>
+        <p className="text-white mb-3 text-sm">
+          Ficamos felizes em tê-lo(a) aqui conosco novamente!
+        </p>
+        <img src="logo.png" alt="Logo" className="w-96 h-96 object-contain" />
       </div>
     </div>
   );

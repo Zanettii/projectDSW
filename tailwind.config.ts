@@ -16,6 +16,8 @@ const config: Config = {
         'primary': 'rgb(var(--primary))',
         'secondary': 'rgb(var(--secondary))',
         'accent': 'rgb(var(--accent))',
+        'text-sub': 'rgb(var(--text-sub))',
+        'text-title': 'rgb(var(--text-title))',
        },
       fontFamily: {
         sans: ['Arial', 'Helvetica', 'sans-serif'], // Define sua fonte padrão

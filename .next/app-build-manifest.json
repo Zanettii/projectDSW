@@ -21,10 +21,27 @@
       "static/chunks/main-app.js",
       "static/chunks/app/leitura-atual/page.js"
     ],
-    "/_not-found/page": [
+    "/ranking/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/ranking/page.css",
+      "static/chunks/app/ranking/page.js"
+    ],
+    "/perfil/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/perfil/page.js"
+    ],
+    "/cadastro/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/cadastro/layout.js"
+    ],
+    "/cadastro/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/cadastro/page.css",
+      "static/chunks/app/cadastro/page.js"
     ]
   }
 }
