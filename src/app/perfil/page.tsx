@@ -8,7 +8,7 @@ export default function Page() {
       <section id="perfil" className="w-1/3 flex flex-col items-center pt-12 border-r-2 border-[var(-background)]">
         <div className="text-center">
           <img
-            src="/foto.png"
+            src="/Personagens/Diogo/DiogoPerfil.png"
             alt="Foto do Perfil"
             className="mb-1 w-44 h-44 rounded-full border-8 border-[var(--text)]"
           />

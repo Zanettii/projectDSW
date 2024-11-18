@@ -16,8 +16,11 @@ const config: Config = {
         'primary': 'rgb(var(--primary))',
         'secondary': 'rgb(var(--secondary))',
         'accent': 'rgb(var(--accent))',
+        'accent2': 'rgb(var(--accent2))',
+        'accent3': 'rgb(var(--accent3))',
         'text-sub': 'rgb(var(--text-sub))',
         'text-title': 'rgb(var(--text-title))',
+        'padrao': 'rgb(var(--padrao))',
         
        },
       fontFamily: {

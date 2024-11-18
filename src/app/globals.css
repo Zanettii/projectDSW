@@ -8,13 +8,16 @@
   }
 
   :root {
-    --text: rgb(15, 4, 29);
+    --text: rgb(22, 5, 39);
     --text-sub: rgb(54, 50, 59);
     --text-title: rgb(255, 255, 255);
-    --background: rgb(249, 245, 255);
+    --background: rgb(224, 207, 252);
     --primary: rgb(121, 60, 190);
-    --secondary: rgba(155, 93, 231, 0.25);
-    --accent: rgb(161, 15, 169);
+    --secondary: rgba(155, 93, 231, 0.651);
+    --accent: rgb(110, 28, 158);
+    --accent2: rgba(162, 94, 201, 0.904);
+    --accent3: rgba(104, 44, 139, 0.856);
+    --padrao: rgb(22, 5, 39);
 
   }
 
@@ -22,21 +25,26 @@
     --text: rgb(255, 255, 255);
     --text-sub: rgb(153, 150, 156);
     --text-title: rgb(255, 255, 255);
-    --background: rgb(3, 20, 28);
+    --background: rgb(22, 5, 39);
     --primary: rgba(34, 4, 68, 0.7);
     --secondary: rgba(48, 12, 90, 0.6);
-    --accent: rgb(161, 15, 169);
+    --accent: rgba(102, 40, 182, 0.541);
+    --accent2: rgb(61, 27, 116);
+    --accent3: rgba(90, 37, 175, 0.897);
+    --padrao: rgb(22, 5, 39);
 
   }
 
   .light {
-    --text: rgb(15, 4, 29);
+    --text: rgb(22, 5, 39);
     --text-sub: rgb(54, 50, 59);
     --text-title: rgb(255, 255, 255);
     --background: rgb(249, 245, 255);
     --primary: rgb(121, 60, 190);
-    --secondary: rgba(155, 93, 231, 0.25);
-    --accent: rgb(161, 15, 169);
+    --secondary: rgba(155, 93, 231, 0.651);
+    --accent: rgba(250, 75, 127, 0.452);
+    --accent2: rgb(147, 85, 228);
+    --padrao: rgb(22, 5, 39);
 
   }
 

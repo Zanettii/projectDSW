@@ -1,5 +1,4 @@
 import React from 'react';
-import './stileLogin.css'; 
 import CadastroLayout from './layout';
 
 export default function Page() {
@@ -7,7 +6,7 @@ export default function Page() {
     backgroundColor: 'var(--background)',
     color: 'var(--text)',
   };
-  const secondaryBackground = { backgroundColor: 'var(--secondary)' };
+  const secondaryBackground = { backgroundColor: 'var(--primary)' };
 
   return (
     <CadastroLayout>
@@ -17,15 +16,15 @@ export default function Page() {
         className="flex-1 flex flex-col justify-center items-center rounded-tr-md rounded-br-md"
         style={secondaryBackground}
       >
-        <h1 className="text-[var(--text)] mb-2 text-xl font-bold">
+        <h1 className="text-[var(--text-title)] mb-2 text-xl font-bold">
           Seja Bem Vindo(a)!
         </h1>
-        <p className="text-[var(--text)] mt-1 mb-2 text-sm">
+        <p className="text-[var(--text-title)] mt-1 mb-2 text-sm">
           Você é novo por aqui? Não se preocupe, o cadastro é bem simples!
         </p>
         <img
           src="logo.png"
-          alt="Logotipo da empresa" // Melhorar a acessibilidade
+          alt="Logotipo da empresa" 
           className="w-96 h-96 object-contain"
         />
       </div>
@@ -33,8 +32,8 @@ export default function Page() {
       {/* Lado direito */}
       <div className="flex-1 flex items-center justify-center">
         <div className="max-w-sm w-full p-5 rounded-md">
-          <h1 className="text-center mb-4 text-xl font-bold">Cadastre-se</h1>
-          <p className="text-center mt-1 text-sm">Bem vindo(a)!</p>
+          <h1 className="text-center mb-4 text-xl font-bold text-[var(--primary)]">Cadastre-se</h1>
+          <p className="text-center mt-1 text-sm text-[var(--primary)]">Bem vindo(a)!</p>
 
           <form>
             <div className="mb-4">
@@ -43,7 +42,7 @@ export default function Page() {
                 id="name"
                 name="name"
                 placeholder="Nome"
-                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                className="w-full p-2 rounded border focus:outline-none focus:ring focus:ring-[var(--primary)]"
                 required
               />
             </div>
@@ -54,7 +53,7 @@ export default function Page() {
                 id="email"
                 name="email"
                 placeholder="Email"
-                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                className="w-full p-2 rounded border focus:outline-none focus:ring focus:ring-[var(--primary)]"
                 required
               />
             </div>
@@ -65,7 +64,7 @@ export default function Page() {
                 id="password"
                 name="password"
                 placeholder="Senha"
-                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                className="w-full p-2 rounded border focus:outline-none focus:ring focus:ring-[var(--primary)]"
                 required
               />
             </div>
@@ -76,7 +75,7 @@ export default function Page() {
                 id="password-confirm"
                 name="password-confirm"
                 placeholder="Confirme a Senha"
-                className="w-full p-3 rounded border border-[var(--text)] focus:outline-none focus:ring focus:ring-[var(--accent)]"
+                className="w-full p-2 rounded border focus:outline-none focus:ring focus:ring-[var(--primary)]"
                 required
               />
             </div>
@@ -89,9 +88,9 @@ export default function Page() {
             </button>
           </form>
 
-          <p className="text-center mt-7 text-sm">
+          <p className="text-center mt-7 text-sm text-[var(--primary)]">
             Já tem uma conta?{' '}
-            <a href="/login" className="text-[var(--accent)] hover:underline">
+            <a href="/login" className="text-[var(--secondary)] hover:underline">
               Login
             </a>
           </p>

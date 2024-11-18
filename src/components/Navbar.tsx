@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false); // Controla a visibilidade do menu de perfil
   const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false); // Controla o menu de notificações
 
-  const profileImage = "/foto.png"; 
+  const profileImage = "/Personagens/Diogo/DiogoPerfil.png"; 
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -116,7 +116,7 @@ const Navbar = () => {
 
             {/* Menu suspenso de perfil */}
             {isProfileMenuOpen && (
-              <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-40 py-2">
+              <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-40 py-2 z-10">
                 <Link href="/perfil">
                   <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Perfil</div>
                 </Link>
