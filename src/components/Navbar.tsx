@@ -47,7 +47,7 @@ const Navbar = () => {
                 alt="Logo" 
                 className="mr-2 w-8 h-8"  // Define o tamanho do logo
               />
-              Verbix
+              verbix
             </Link>
           </h1>
         )}
@@ -85,8 +85,8 @@ const Navbar = () => {
             {/* Menu suspenso de notificações */}
             {isNotificationsMenuOpen && (
               <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-80 py-2 z-10">
-                <div className="px-4 py-2 border-b">
-                  <h3 className="text-lg font-bold">Notificações</h3>
+                <div className="px-4 py-2 border-b ">
+                  <h3 className="text-lg font-bold items-center">Notificações</h3>
                 </div>
                 <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">
                   <p>Nova mensagem de usuário.</p>

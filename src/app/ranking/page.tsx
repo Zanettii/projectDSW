@@ -8,11 +8,7 @@ type RankingCategory = "Páginas" | "Livros" | "Sequências" | "Missões";
 type RankingType = "amigos" | "geral";
 type user = { id: 'verbix', name: 'Verbix', avatar: 'Diogo' };
 
-const positions = [
-  { name: "1º Lugar", color: "bg-yellow-400", height: "h-32", icon: "🥇", mascot: "📖" },
-  { name: "2º Lugar", color: "bg-gray-400", height: "h-28", icon: "🥈", mascot: "🦉" },
-  { name: "3º Lugar", color: "bg-orange-400", height: "h-24", icon: "🥉", mascot: "🐻" },
-];
+
 
 interface RankingItem {
   id: string;

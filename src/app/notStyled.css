@@ -2,11 +2,15 @@
 /* Design Inspired by one of Stefan Devai's Design on Dribble */
 
 .main_wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30em;
-    height: 30em;
+  height: 100%;
+  min-height: 100vh;
+  flex: 1 1 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
   }
   
   .main {
@@ -135,11 +139,11 @@
   }
   
   .notfound_text {
-    background-color: black;
+
     padding-left: 0.3em;
     padding-right: 0.3em;
-    font-size: 0.75em;
-    color: white;
+    font-size: 3em;
+    color: var(--text-title);
     letter-spacing: 0;
     border-radius: 5px;
     z-index: 10;

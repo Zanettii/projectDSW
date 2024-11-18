@@ -10,7 +10,7 @@ const ThemeSwitcher: React.FC = () => {
     if (savedTheme) {
       setIsDarkMode(savedTheme === "dark");
     } else {
-      setIsDarkMode(true); 
+      setIsDarkMode(false); 
     }
   }, []);
 

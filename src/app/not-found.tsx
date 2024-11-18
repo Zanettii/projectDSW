@@ -1,10 +1,13 @@
 import React from 'react';
 import './notStyled.css';
+import Link from 'next/link';
 
-const Card: React.FC = () => {
+export default function NotFoundPage() {
+  
   return ( 
     
     <div className="main_wrapper">
+      <div className='fixed'>
       <div className="main">
         <div className="antenna">
           <div className="antenna_shadow"></div>
@@ -64,8 +67,15 @@ const Card: React.FC = () => {
           <div className="base3"></div>
         </div>
       </div>
+      <Link href="./">
+  <div className="mt-[50px] px-4 py-2 hover:bg-[var(--secondary)] border-2 border-[var(--secondary)] rounded-full cursor-pointer hover:text-[var(--text-title)] flex items-center justify-center">
+    Voltar
+  </div>
+</Link>
+
+      </div>
     </div>
   );
 };
 
-export default Card;
+
