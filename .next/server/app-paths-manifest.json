@@ -1,7 +1,7 @@
 {
   "/ranking/page": "app/ranking/page.js",
-  "/page": "app/page.js",
   "/perfil/page": "app/perfil/page.js",
+  "/page": "app/page.js",
   "/login/page": "app/login/page.js",
   "/cadastro/page": "app/cadastro/page.js"
 }
