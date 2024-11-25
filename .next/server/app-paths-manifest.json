@@ -1,4 +1,4 @@
 {
-  "/ranking/page": "app/ranking/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js",
   "/page": "app/page.js"
 }
