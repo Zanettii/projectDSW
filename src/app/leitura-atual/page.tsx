@@ -1,20 +1,26 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchLivrosOrganizados } from '../services/apiServices';
 
 export default function Leituras() {
-  const leiturasAvaliadas = [
-    { id: 1, titulo: "Harry Potter e o Prisioneiro de Azkaban", descricao: "Descubra os mistérios escondidos na floresta encantada." },
-    { id: 2, titulo: "O Pequeno Príncipe", descricao: "Uma viagem pelo espaço com muitas surpresas!" },
-    { id: 3, titulo: "Os Lusíadas", descricao: "Uma história cheia de mistérios" },
-  ];
-
-  const livrosPorGenero: { [key: string]: string[] } = {
-    Aventura: ["Aventura na Floresta", "Expedição nas Montanhas"],
-    Ficcao: ["O Pequeno Astronauta", "Realidade Alternativa"],
-    Suspense: ["O Segredo do Castelo", "Mistério na Vila"],
-  };
-
+  const [leiturasAvaliadas, setLeiturasAvaliadas] = useState<any[]>([]);
+  const [livrosPorGenero, setLivrosPorGenero] = useState<{ [key: string]: any[] }>({});
   const [generoSelecionado, setGeneroSelecionado] = useState<string>("");
+
+  // Função para carregar os dados da API
+  useEffect(() => {
+    const carregarLivros = async () => {
+      try {
+        const { leiturasAvaliadas, livrosPorGenero } = await fetchLivrosOrganizados();
+        setLeiturasAvaliadas(leiturasAvaliadas);
+        setLivrosPorGenero(livrosPorGenero);
+      } catch (error) {
+        console.error("Erro ao carregar os livros:", error);
+      }
+    };
+
+    carregarLivros();
+  }, []);
 
   const handleGeneroChange = (genero: string) => {
     setGeneroSelecionado(genero === generoSelecionado ? "" : genero);
@@ -35,8 +41,17 @@ export default function Leituras() {
         <div className="flex justify-around flex-wrap gap-6">
           {leiturasAvaliadas.map((leitura) => (
             <div key={leitura.id} className="bg-white border-2 border-primary rounded-lg p-5 w-60 text-center shadow-md">
-              <h3 className="text-primary">{leitura.titulo}</h3>
-              <p className="text-gray-700">{leitura.descricao}</p>
+              {leitura.formats?.["image/jpeg"] && (
+                <img
+                  src={leitura.formats["image/jpeg"]}
+                  alt={`Capa de ${leitura.title}`}
+                  className="w-full h-40 object-cover rounded-md mb-4"
+                />
+              )}
+              <h3 className="text-primary">{leitura.title}</h3>
+              <p className="text-gray-700">
+                {leitura.authors?.[0]?.name || "Autor desconhecido"}
+              </p>
               <button className="bg-accent text-white py-2 px-4 rounded mt-4">
                 Ler agora
               </button>
@@ -67,8 +82,10 @@ export default function Leituras() {
           <div>
             <h4 className="text-accent text-xl font-bold mb-4">{generoSelecionado}</h4>
             <ul>
-              {livrosPorGenero[generoSelecionado].map((livro, index) => (
-                <li key={index} className="text-gray-700 py-2 border-b border-gray-200">{livro}</li>
+              {livrosPorGenero[generoSelecionado].map((livro) => (
+                <li key={livro.id} className="text-gray-700 py-2 border-b border-gray-200">
+                  {livro.title} 
+                </li>
               ))}
             </ul>
           </div>

@@ -52,10 +52,11 @@
   }
 
   .scroll-container {
-    width: 300px;
-    height: 200px;
-    overflow-y: scroll;
-    border: 1px solid black;
+    max-height: 80vh; /* Altura máxima de 80% da viewport */
+    overflow-y: auto; /* Ativa o scroll vertical */
+    overflow-x: hidden; /* Impede scroll horizontal */
+    padding: 10px; /* Espaçamento interno */
+    box-sizing: border-box; /* Inclui padding no tamanho total */
   }
 
   .page-container {
