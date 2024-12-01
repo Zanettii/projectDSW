@@ -3,31 +3,29 @@
 import React, { useState } from "react";
 import styles from "./ranking.module.css";
 import { rankings as rankingsData } from "./rankingsData";
+import { user as userDados } from '../../../public/dadosBase/userDados';
 
 type RankingCategory = "Páginas" | "Livros" | "Sequências" | "Missões";
 type RankingType = "amigos" | "geral";
-type user = { id: 'verbix', name: 'Verbix', avatar: 'Diogo' };
 
+const user = {
+  userName: userDados.id,
+  nome: userDados.nome,
+  idade: userDados.idade,
+  avatar: userDados.avatar,
+  avatarIcon: userDados.avatarIcone,
+  conquistas: userDados.conquistas,
+  amigos: userDados.friends,
+  avancoDados: userDados.avanco,
+  missoes: userDados.missoes,
+};
 
-
-interface RankingItem {
-  id: string;
-  name: string;
-  score: number;
-}
-
-interface Rankings {
-  [key: string]: {
-    amigos: RankingItem[];
-    geral: RankingItem[];
-  };
-}
 
 const RankingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<RankingCategory>("Páginas");
   const [selectedRankingType, setSelectedRankingType] = useState<RankingType>("amigos");
 
-  const user: user = { id: 'verbix', name: 'Verbix', avatar: 'Diogo'  };
+  
 
   const handleCategoryChange = (category: RankingCategory) => {
     setSelectedCategory(category);
@@ -43,7 +41,7 @@ const RankingPage = () => {
   const top3Rankings = top20Rankings.slice(0, 3);
 
   // Posição do usuário no ranking
-  const userRank = sortedRankings.findIndex((item) => item.id === user.id) + 1;
+  const userRank = sortedRankings.findIndex((item) => item.id === user.userName) + 1;
 
   return (
     <div className={styles.container}>
@@ -122,7 +120,7 @@ const RankingPage = () => {
               <div className={styles.userposicao}>
                 <span className={styles.rank}>{userRank}º</span>
                 <span className={styles.imgage}><img src={`/Personagens/${user.avatar}/${user.avatar}Perfil.png`} alt="Avatar" className="w-8 h-8 rounded-full border-2 border-[var(--text-title)] -mb-[5px]" /></span>
-                <span className={styles.name}>{user.name}</span>
+                <span className={styles.name}>{user.userName}</span>
                 <span className={styles.score}>{sortedRankings[userRank - 1].score} PL</span>
               </div>
             ) : null}
@@ -142,7 +140,7 @@ const RankingPage = () => {
             {top20Rankings.map((item, index) => (
               <div
                 key={item.id}
-                className={`${styles.rankingItem} ${index < 3 ? styles.topRanking : ""} ${item.id === user.id ? styles.highlightUser : ""}`}
+                className={`${styles.rankingItem} ${index < 3 ? styles.topRanking : ""} ${item.id === user.userName ? styles.highlightUser : ""}`}
               >
                 <span className={styles.rank}>{index + 1}º</span>
                 <span className={styles.imgage}><img src={`/Personagens/${item.avatar}/${item.avatar}Perfil.png`} alt="Avatar" className="w-8 h-8 rounded-full border-2 border-[var(--text-title)] -mb-[5px]" /></span>

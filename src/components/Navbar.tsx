@@ -2,7 +2,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AiOutlineSearch, AiOutlineBell } from "react-icons/ai";
-import ThemeSwitcher from "./Elementos";
+import ThemeSwitcher from "./TemaButton";
+import { user as userDados } from '../../public/dadosBase/userDados';
+
+const user = {
+  userName: userDados.id,
+  nome: userDados.nome,
+  idade: userDados.idade,
+  avatar: userDados.avatar,
+  avatarIcon: userDados.avatarIcone,
+  conquistas: userDados.conquistas,
+  amigos: userDados.friends,
+  avancoDados: userDados.avanco,
+  missoes: userDados.missoes,
+};
 
 const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -10,7 +23,7 @@ const Navbar = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false); // Controla a visibilidade do menu de perfil
   const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false); // Controla o menu de notificações
 
-  const profileImage = "/Personagens/Diogo/DiogoPerfil.png"; 
+  const profileImage = user.avatarIcon[1]; 
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
