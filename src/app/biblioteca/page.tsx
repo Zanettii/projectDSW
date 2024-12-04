@@ -173,7 +173,7 @@ export default function Page() {
             >
               <button
                 onClick={handleCloseDescription}
-                style={{ float: "right", marginBottom: "10px", padding: "5px", width: "20px" }}
+                style={{ float: "right", marginBottom: "10px", padding: "5px", width: "20px", color:"white" }}
               >
                 X
               </button>
@@ -185,17 +185,17 @@ export default function Page() {
               <h2 style={{ color: "white", textAlign: "center", fontSize: "20px", padding: "20px" }}>
                 {livroSelecionado.title}
               </h2>
-              <p>
+              <p className="text-white">
                 <strong>Autor:</strong>{" "}
                 {livroSelecionado.authors.map((author) => author.name).join(", ") || "Desconhecido"}
               </p>
-              <p>
+              <p className="text-white">
                 <strong>Assuntos:</strong> {livroSelecionado.subjects.join(", ") || "Nenhum"}
               </p>
-              <p>
+              <p className="text-white">
                 <strong>Idiomas:</strong> {livroSelecionado.languages.join(", ")}
               </p>
-              <a href="./leitura">
+              <a href="./leitura" className="text-white">
                 <button
                   style={{
                     float: "right",
