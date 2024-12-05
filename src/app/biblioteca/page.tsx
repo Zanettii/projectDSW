@@ -1,5 +1,6 @@
-"use client";
+"use client"; 
 import React, { useState, useEffect } from "react";
+import { fetchLivrosAPI } from "../services/books";
 
 interface Livro {
   id: number;
@@ -15,15 +16,6 @@ interface Livro {
   formats: { [key: string]: string }; // URLs dos formatos do livro
 }
 
-interface ApiResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: Livro[];
-}
-
-const API_URL = "https://gutendex.com/books";
-
 export default function Page() {
   const [livros, setLivros] = useState<Livro[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,11 +26,7 @@ export default function Page() {
   const fetchLivros = async (query: string = "") => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}?languages=pt${query}`);
-      if (!response.ok) {
-        throw new Error("Erro ao buscar dados da API");
-      }
-      const data: ApiResponse = await response.json();
+      const data = await fetchLivrosAPI(query);
       setLivros(data.results);
     } catch (error) {
       console.error("Erro ao carregar os livros:", error);
@@ -68,7 +56,6 @@ export default function Page() {
   return (
     <div className="bg-secondary">
       <main style={{ display: "flex", flexDirection: "column", flexGrow: 1, overflowY: "hidden" }}>
-        {/* Barra de busca */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <input
@@ -97,21 +84,18 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Lista de livros */}
         <div style={{ display: "flex", flexGrow: 2, padding: "50px", overflowY: "hidden" }}>
           <div style={{ width: "100%", overflowY: "auto", maxHeight: "calc(100vh - 120px)" }}>
             {loading ? (
               <p>Carregando livros...</p>
             ) : (
-              <div style={{ display: "flex", overflowX: "auto", gap: "20px", padding: "10px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "20px", padding: "10px" }}>
                 {livros.map((livro) => (
                   <div
                     key={livro.id}
                     className="livro"
                     style={{
-                      flexShrink: 0,
                       textAlign: "center",
-                      padding: "10px",
                       cursor: "pointer",
                     }}
                     onClick={() => handleLivroClick(livro)}
@@ -139,23 +123,25 @@ export default function Page() {
                       />
                     </div>
                     <p
-                    style={{
-                      marginTop: '10px',
-                      width: '140px',
-                      fontSize: '14px',
-                      fontWeight: 'bold',
-                      color: 'white',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis'
-                    }}>{livro.title}</p>
+                      style={{
+                        marginTop: "10px",
+                        width: "140px",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        color: "white",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {livro.title}
+                    </p>
                   </div>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Detalhes do livro */}
           {livroSelecionado && (
             <div
               style={{
@@ -173,7 +159,7 @@ export default function Page() {
             >
               <button
                 onClick={handleCloseDescription}
-                style={{ float: "right", marginBottom: "10px", padding: "5px", width: "20px", color:"white" }}
+                style={{ float: "right", marginBottom: "10px", padding: "5px", width: "20px", color: "white" }}
               >
                 X
               </button>
