@@ -1,10 +1,11 @@
 'use client';
 import React, { useState } from "react";
 import Link from "next/link";
-import { AiOutlineSearch, AiOutlineBell } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import ThemeSwitcher from "./TemaButton";
 import { user as userDados } from '../../public/dadosBase/userDados';
 import  Notifications  from "./Notificacoes";
+
 
 
 
@@ -39,18 +40,19 @@ const Navbar = () => {
 
   const toggleProfileMenu = () => {
     if (isNotificationsMenuOpen) {
-      setIsNotificationsMenuOpen(false);
+      setIsNotificationsMenuOpen(false); // Fecha o menu de notificações
     }
-    setIsProfileMenuOpen(!isProfileMenuOpen);
+    setIsProfileMenuOpen((prev) => !prev); // Alterna o menu de perfil
   };
-
+  
   const toggleNotificationsMenu = () => {
     if (isProfileMenuOpen) {
-      setIsProfileMenuOpen(false);
+      setIsProfileMenuOpen(false); // Fecha o menu de perfil
     }
-    setIsNotificationsMenuOpen(!isNotificationsMenuOpen);
+    setIsNotificationsMenuOpen((prev) => !prev); // Alterna o menu de notificações
   };
-
+  
+  
 
 
   return (
@@ -92,7 +94,10 @@ const Navbar = () => {
           </div>
           {/* Ícone de Notificação */}
           <div className="relative">
-            <Notifications />
+            <Notifications
+            isOpen={isNotificationsMenuOpen}
+            onToggle={toggleNotificationsMenu}
+            />
           </div>
 
           {/* Menu de Perfil */}
@@ -109,10 +114,20 @@ const Navbar = () => {
             {isProfileMenuOpen && (
               <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-40 py-2 z-10">
                 <Link href="/perfil">
-                  <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Perfil</div>
+                  <div
+                  className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer"
+                  onClick={() => setIsProfileMenuOpen(false)} // Fecha o menu ao clicar
+                  >
+                    Perfil
+                  </div>
                 </Link>
                 <Link href="/configuracoes">
-                  <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Configurações</div>
+                <div
+                  className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer"
+                  onClick={() => setIsProfileMenuOpen(false)} // Fecha o menu ao clicar
+                  >
+                    Configurações
+                </div>
                 </Link>
                 <Link href='/login'>
                   <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Sair</div>
