@@ -1,5 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
+
+
 
 const ThemeSwitcher = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
@@ -28,10 +31,10 @@ const ThemeSwitcher = () => {
   return (
     <button
       onClick={() => setIsDarkMode((prev) => !prev)} 
-      className="px-4 py-2 bg-primary text-text-title rounded "
+      className="bg-primary"
       
     >
-      {isDarkMode ? "Modo Claro" : "Modo Escuro"}
+      {isDarkMode ? <FaSun className="w-6 h-6"/> : <FaMoon className="w-6 h-6"/>}
     </button>
   );
 };
