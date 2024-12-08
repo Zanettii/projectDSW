@@ -1,0 +1,276 @@
+[33mcommit e1da4ebaaddfc19cbd68da44daeaf9bf9e2aca79[m[33m ([m[1;36mHEAD -> [m[1;32mbranch-Douglas[m[33m, [m[1;31morigin/branch-Douglas[m[33m)[m
+Author: Douglas Sposito <douglas_sposito2015@outlook.com>
+Date:   Mon Nov 11 16:25:24 2024 -0300
+
+    correção de cores
+
+[33mcommit 38407df0ac04e6e888916d917825e76eb1cf0bf3[m
+Author: Douglas Sposito <douglas_sposito2015@outlook.com>
+Date:   Sun Nov 10 19:37:08 2024 -0300
+
+    Criação da Sidebar
+
+[33mcommit 1c5131c295f782813d654d8d80377cf02cb91bba[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Fri Oct 25 21:33:55 2024 -0300
+
+    alterando a responsividade da tela
+
+[33mcommit e3d1a40d919a2af48b784137d409584b95e09a41[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Fri Oct 25 21:01:24 2024 -0300
+
+    Adicionando o scroll vertical
+
+[33mcommit 451d3583013b36dab2aaae64b7915f7aae2159db[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Fri Oct 25 20:42:47 2024 -0300
+
+    alterando pag de leituras
+
+[33mcommit 27cb4df7f2168745dd9bbd5dd1cb72823088e818[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Fri Oct 25 20:22:16 2024 -0300
+
+    ALTERANDO A PAGINA DE LEITURAS
+
+[33mcommit b84ad6886c49de366d177e9e698db7d56bccd4f9[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Mon Oct 21 20:50:31 2024 -0300
+
+    Leitura Atual
+
+[33mcommit 6475f788c21d6ed4ed00181ec904776bf96cf835[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Mon Oct 21 20:49:08 2024 -0300
+
+    leituras atuais
+
+[33mcommit 2c24a2cfec1ed8a36777d505e9ac0ae35532c29a[m
+Author: Ana Zanetti <moraiszanetti@gmail.com>
+Date:   Mon Oct 21 20:43:35 2024 -0300
+
+    ana
+
+[33mcommit 99dd80dd8b544ae9a4297794b5a7795651ea9703[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 20:30:00 2024 -0300
+
+    Remover Flex
+
+[33mcommit 7a3499071efa98dd0f5c065f4254b45670ae33a8[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 20:27:59 2024 -0300
+
+    Atualização
+
+[33mcommit f515b2f4a0dc976bfe9001aa627a9f24c958f1af[m
+Author: lucasetc <lucasedtc@gmail.com>
+Date:   Mon Oct 21 20:30:09 2024 -0300
+
+    Atualização
+
+[33mcommit 29e0028cadb2e82cec7d4bc120f0e8da7faa17ea[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 20:06:49 2024 -0300
+
+    Atualização
+
+[33mcommit 58372857f3357d7c13b96bb8007efc448f5d4eee[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 20:00:45 2024 -0300
+
+    Sub
+
+[33mcommit 52c476b625b6503fdd2e7b9ca0db4f15f17bd0dd[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 19:59:44 2024 -0300
+
+    Sinc
+
+[33mcommit fdd67d3315ebcf02c933c3caea12969cabf19662[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 19:45:41 2024 -0300
+
+    Componentização
+
+[33mcommit 9b1b53b4be3d41fa199de95e036a22d23343d47e[m[33m ([m[1;31morigin/Ana-Branch[m[33m)[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Oct 21 16:51:50 2024 -0300
+
+    ADD IMAGENS
+
+[33mcommit b8fe013a25adca6814f1a98676784720146cba07[m
+Author: lucasetc <lucasedtc@gmail.com>
+Date:   Mon Oct 21 15:59:25 2024 -0300
+
+    Atualização 3 primeiros colocados
+
+[33mcommit e7d016930e4b0a0b8ea441ae513f148eee5d3a39[m
+Author: lucasetc <lucasedtc@gmail.com>
+Date:   Mon Oct 21 14:34:56 2024 -0300
+
+    Adiciona ranking de jogadores com opção de ranking total e entre amigos
+
+[33mcommit 347d3157fbee51aaf73cfb6b932bedaacd832ed9[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Sep 16 16:14:51 2024 -0300
+
+    'Adicionando o menu'
+
+[33mcommit 37609d64702b08df3c2627ff1a6cfa65517937a9[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Sep 16 16:11:50 2024 -0300
+
+    'Adicionando o menu'
+
+[33mcommit f56e2f62606efbf075a08c6a6cb2e747a1f558fb[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Sep 16 13:05:22 2024 -0300
+
+    Co-authored-by: Geisbelly <geisbelly19@gmail.com>
+    Co-authored-by: Geisbelly Victória <90412629+Geisbelly@users.noreply.github.com>
+
+[33mcommit 9fdad9394badb44f01ba675de22bfaeae8459637[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 21:48:12 2024 -0300
+
+    Atualizações (login, cadastro, leitura atual, json e pacotes
+
+[33mcommit 77c256e6d993a14cb0f45ddfe48d524fea76ec3b[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 21:41:24 2024 -0300
+
+    Atualizações (login, cadastro, leitura atual, json e pacotes
+
+[33mcommit 51d8f2b0ec353e2406066d07ad3f31c0921f96fd[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 20:19:03 2024 -0300
+
+    Atualizações (login, cadastro, leitura atual, json e pacotes
+
+[33mcommit 6cdbf5040d3bf3283a4edf13b19438db515c062e[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 15:19:12 2024 -0300
+
+    Atualizações (login, cadastro, leitura atual, json e pacotes
+
+[33mcommit 5e2e6de09707e30a10d91d8a6ac5185c713ef177[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 10:26:21 2024 -0300
+
+    Atualizando Jsons
+
+[33mcommit 8b79e5acc5851fd2cdc3b0ecbcafb9257fd7b289[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 01:39:49 2024 -0300
+
+    Perfil, cadastro e Login - Alterações
+
+[33mcommit 792448df0dd42ddd868c2bbd1373f58a287e63b2[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sun Sep 15 01:34:37 2024 -0300
+
+    Perfil, cadastro e Login - Alterações
+
+[33mcommit dca6219038778e4e083f223e4c31fbd38f756d35[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 23:53:45 2024 -0300
+
+    Perfil, cadastro e Login - Alterações
+
+[33mcommit 21f89eb7afc697be004a3c888d9b5b17dbc7a884[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 23:16:59 2024 -0300
+
+    Perfil e Login - Alterações
+
+[33mcommit a7c433f74c8ae57ad9a08e4d1e5ef72835a53332[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 23:14:48 2024 -0300
+
+    Perfil e Login - Alterações
+
+[33mcommit 449649f95bea64550202c34c721e41b9710cc3c2[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 22:44:34 2024 -0300
+
+    Perfil alterações
+
+[33mcommit 4400113c7c61653cdb88d8419cd96fb274cf4cc1[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 22:40:24 2024 -0300
+
+    Perfil alterações
+
+[33mcommit a930706423498f39602e9f88426b8ab78c2ee0ac[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 22:20:03 2024 -0300
+
+    Perfil alterações
+
+[33mcommit 8b8bbec4e25a1cb6eb45da6ef414fda44f69bddb[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 22:17:34 2024 -0300
+
+    Perfil alterações
+
+[33mcommit ab61014925be447a702e8d032c9ff680e0bbe501[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 22:01:05 2024 -0300
+
+    Perfil alterações
+
+[33mcommit 01da15242683c2ef330a9ca451e601c44ea5bd0a[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 21:59:19 2024 -0300
+
+    Perfil alterações
+
+[33mcommit d99427a08fafe6639169dd5814c9f1ee127a8f38[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Sat Sep 14 21:57:31 2024 -0300
+
+    Perfil alterações
+
+[33mcommit 55e3d28b5f9addd945a2d4fdfe678d24dc969405[m
+Author: Lucas <lucasedtc@gmail.com>
+Date:   Mon Sep 9 21:43:14 2024 -0300
+
+    Atualização da página
+
+[33mcommit fdb9a04894c2ba1d644203d7d45c5ed3a306ec78[m
+Author: Laboratorios de Informatica CEULP <labins.pmw@ensino.ulbra.net>
+Date:   Mon Sep 9 21:25:45 2024 -0300
+
+    Criação da página ranking
+
+[33mcommit d6edf00d13298950be4a769a7cbdddb538beecff[m
+Author: Geisbelly Victória <90412629+Geisbelly@users.noreply.github.com>
+Date:   Mon Sep 9 20:27:40 2024 -0300
+
+    Delete ANABRAVA.txt
+
+[33mcommit ccb046da7096f2b3a997bf94b5829f084784e546[m
+Author: Geisbelly Victória <90412629+Geisbelly@users.noreply.github.com>
+Date:   Mon Sep 9 20:27:31 2024 -0300
+
+    Delete mariantonia.txt
+
+[33mcommit 84eb65c7e4b7408302647349d6304d35724efa01[m
+Author: Geisbelly Victória <90412629+Geisbelly@users.noreply.github.com>
+Date:   Mon Sep 9 20:27:19 2024 -0300
+
+    Delete NewGeisbelly.txt
+
+[33mcommit 7d7466922aa59dade7a8e2e1b3c791a02897d8f5[m
+Author: Geisbelly Victória <90412629+Geisbelly@users.noreply.github.com>
+Date:   Mon Sep 9 20:21:44 2024 -0300
+
+    Delete Geisbelly.txt
+
+[33mcommit bdd0f6470bd8833cbb574fcd39a1d937288e0807[m
+Author: Geisbelly <geisbelly19@gmail.com>
+Date:   Mon Sep 9 20:14:39 2024 -0300
+
+    Geisbelly Projeto

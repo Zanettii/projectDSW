@@ -1,0 +1,75 @@
+{
+    "notifications": [
+      {
+        "id": 1,
+        "type": "user",
+        "text": "Seu perfil foi atualizado.",
+        "date": "2024-12-06T10:30:00Z",
+        "read": false
+      },
+      {
+        "id": 2,
+        "type": "social",
+        "text": "Você recebeu uma nova mensagem de João.",
+        "date": "2024-12-06T11:00:00Z",
+        "read": false
+      },
+      {
+        "id": 3,
+        "type": "achievement",
+        "text": "Parabéns! Você desbloqueou a conquista 'Explorador'.",
+        "date": "2024-12-05T15:20:00Z",
+        "read": true
+      },
+      {
+        "id": 4,
+        "type": "system",
+        "text": "Manutenção programada para 2024-12-10 às 02:00 AM.",
+        "date": "2024-12-01T09:00:00Z",
+        "read": false
+      },
+      {
+        "id": 5,
+        "type": "ranking",
+        "text": "Você subiu para a posição #10 no ranking semanal.",
+        "date": "2024-12-04T14:45:00Z",
+        "read": true
+      },
+      {
+        "id": 6,
+        "type": "mission",
+        "text": "Você completou a missão 'Resgatar o artefato perdido'.",
+        "date": "2024-12-03T12:00:00Z",
+        "read": false
+      },
+      {
+        "id": 7,
+        "type": "user",
+        "text": "Nova foto de perfil adicionada com sucesso.",
+        "date": "2024-12-06T08:45:00Z",
+        "read": false
+      },
+      {
+        "id": 8,
+        "type": "social",
+        "text": "Maria aceitou sua solicitação de amizade.",
+        "date": "2024-12-05T16:30:00Z",
+        "read": true
+      },
+      {
+        "id": 9,
+        "type": "achievement",
+        "text": "Você ganhou a medalha de 'Melhor desempenho mensal'.",
+        "date": "2024-12-02T13:10:00Z",
+        "read": false
+      },
+      {
+        "id": 10,
+        "type": "system",
+        "text": "Uma nova atualização está disponível. Clique aqui para saber mais.",
+        "date": "2024-12-04T07:30:00Z",
+        "read": false
+      }
+    ]
+  }
+  

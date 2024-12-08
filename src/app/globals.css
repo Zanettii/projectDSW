@@ -2,26 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  .font-body {
+    font-family: Arial, Helvetica, sans-serif;
   }
+
+  :root {
+    --text: rgb(22, 5, 39);
+    --text-sub: rgb(187, 184, 190);
+    --text-title: rgb(255, 255, 255);
+    --background: rgb(224, 207, 252);
+    --primary: rgb(121, 60, 190);
+    --secondary: rgba(155, 93, 231, 0.651);
+    --accent: rgb(110, 28, 158);
+    --accent2: rgba(162, 94, 201, 0.904);
+    --accent3: rgba(104, 44, 139, 0.856);
+    --padrao: rgb(22, 5, 39);
+
+  }
+
+  .dark {
+    --text: rgb(255, 255, 255);
+    --text-sub: rgb(153, 150, 156);
+    --text-title: rgb(255, 255, 255);
+    --background: rgb(22, 5, 39);
+    --primary: rgba(34, 4, 68, 0.7);
+    --secondary: rgba(48, 12, 90, 0.6);
+    --accent: rgba(102, 40, 182, 0.541);
+    --accent2: rgb(61, 27, 116);
+    --accent3: rgba(90, 37, 175, 0.897);
+    --padrao: rgb(22, 5, 39);
+
+  }
+
+
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+  }
+
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .scroll-container {
+    max-height: 80vh; /* Altura máxima de 80% da viewport */
+    overflow-y: auto; /* Ativa o scroll vertical */
+    overflow-x: hidden; /* Impede scroll horizontal */
+    padding: 10px; /* Espaçamento interno */
+    box-sizing: border-box; /* Inclui padding no tamanho total */
+  }
+
+  .page-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+main {
+  @apply h-full min-h-screen flex-1 overflow-y-auto overflow-x-hidden p-6;
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-text-title {
+  background-color: var(--text-title);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-text-sub {
+  background-color: var(--text-sub);
+}
+
+.mt-12{
+  margin-top: 9em;
 }
