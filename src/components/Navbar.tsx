@@ -53,6 +53,7 @@ const Navbar = () => {
   };
   
   
+  
 
 
   return (
@@ -92,6 +93,7 @@ const Navbar = () => {
           <div>
             <ThemeSwitcher />
           </div>
+          
           {/* Ícone de Notificação */}
           <div className="relative">
             <Notifications
@@ -122,15 +124,20 @@ const Navbar = () => {
                   </div>
                 </Link>
                 <Link href="/configuracoes">
-                <div
+                  <div
                   className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer"
                   onClick={() => setIsProfileMenuOpen(false)} // Fecha o menu ao clicar
                   >
                     Configurações
-                </div>
+                  </div>
                 </Link>
-                <Link href='/login'>
-                  <div className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer">Sair</div>
+                <Link href="/login">
+                  <div
+                  className="px-4 py-2 hover:bg-[var(--secondary)] cursor-pointer"
+                  onClick={() => setIsProfileMenuOpen(false)} // Fecha o menu ao clicar
+                  >
+                    Sair
+                  </div>
                 </Link>
               </div>
             )}

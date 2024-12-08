@@ -4,16 +4,12 @@ import { FaBell } from "react-icons/fa";
 import { useState } from "react";
 import notificationsData from "./../../public/dadosBase/notifications.json";
 
-const Notifications = () => {
-  const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false);
+const Notifications = ({ isOpen, onToggle }) => {
   const [notificationsList, setNotificationsList] = useState(
-    notificationsData.notifications.slice(0, 4)
+    notificationsData.notifications.slice(0,4)
   );
-  
 
-  const toggleNotificationsMenu = () => {
-    setIsNotificationsMenuOpen(!isNotificationsMenuOpen);
-  };
+  
 
   const removeNotification = (id) => {
     setNotificationsList((prev) =>
@@ -27,14 +23,14 @@ const Notifications = () => {
       <FaBell
         aria-label="Notificações"
         className="w-6 h-6 text-text cursor-pointer"
-        onClick={toggleNotificationsMenu}
+        onClick={onToggle}
       />
       {/* Indicador de notificações não lidas */}
       {notificationsList.some((notification) => !notification.read) && (
         <div className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full"></div>
       )}
       {/* Menu de notificações */}
-      {isNotificationsMenuOpen && (
+      {isOpen && (
         <div className="absolute top-12 right-0 bg-[var(--background)] text-[var(--text)] rounded-lg shadow-lg w-80 py-2 z-10">
           <div className="px-4 py-2 border-b">
             <h3 className="text-lg font-bold">Notificações</h3>
@@ -65,7 +61,7 @@ const Notifications = () => {
           {/* Botão fixo para acessar a página de notificações */}
           <div className="border-t sticky bottom-0 bg-[var(--background)]">
             <Link href="/notificacoes">
-              <div className="text-center py-2 text-[var(--text)] text-sm hover:bg-[var(--secondary)] cursor-pointer font-semibold">
+              <div className="text-center py-2 text-[var(--text)] hover:bg-[var(--secondary)] cursor-pointer font-semibold">
                 Ver todas as notificações
               </div>
             </Link>
@@ -77,3 +73,4 @@ const Notifications = () => {
 };
 
 export default Notifications;
+
