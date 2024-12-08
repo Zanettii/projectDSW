@@ -1,6 +1,7 @@
-"use client"; 
+"use client";
 import React, { useState, useEffect } from "react";
 import { fetchLivrosAPI } from "../services/books";
+
 
 interface Livro {
   id: number;
@@ -55,10 +56,12 @@ export default function Page() {
 
   return (
     <div className="bg-secondary">
+
       <main style={{ display: "flex", flexDirection: "column", flexGrow: 1, overflowY: "hidden" }}>
+        {/* Barra de busca */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <input
+          <input
               type="text"
               placeholder="Buscar"
               style={{ padding: "10px", width: "300px", border: "none", borderRadius: "10px", color: "black" }}
@@ -72,24 +75,34 @@ export default function Page() {
               onClick={handleSearch}
               style={{
                 marginLeft: "20px",
-                border: "1px solid",
-                borderRadius: "5px",
+                border: "1px",
+                borderRadius: "10px",
                 cursor: "pointer",
-                padding: "3px",
+                padding: "7px",
                 width: "100px",
+                background: "#430372"
               }}
             >
               Pesquisar
             </button>
+
           </div>
         </div>
 
-        <div style={{ display: "flex", flexGrow: 2, padding: "50px", overflowY: "hidden" }}>
-          <div style={{ width: "100%", overflowY: "auto", maxHeight: "calc(100vh - 120px)" }}>
+        {/* Lista de livros */}
+        <div style={{ display: "flex", flexGrow: 2, padding: "20px", overflowY: "hidden" }}>
+          <div style={{ width: "100%", overflowY: "auto", maxHeight: "calc(100vh - 100px)" }}>
             {loading ? (
-              <p>Carregando livros...</p>
+              <p style={{ color: "white", textAlign: "center" }}>Carregando livros...</p>
             ) : (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "20px", padding: "10px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+                  gap: "20px",
+                  padding: "10px",
+                }}
+              >
                 {livros.map((livro) => (
                   <div
                     key={livro.id}
@@ -97,8 +110,11 @@ export default function Page() {
                     style={{
                       textAlign: "center",
                       cursor: "pointer",
+                      transition: "transform 0.2s ease-in-out",
                     }}
                     onClick={() => handleLivroClick(livro)}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                   >
                     <div
                       style={{
@@ -108,8 +124,9 @@ export default function Page() {
                         justifyContent: "center",
                         alignItems: "center",
                         overflow: "hidden",
-                        borderRadius: "5px",
-                        backgroundColor: "#f0f0f0",
+                        borderRadius: "8px",
+                        backgroundColor: "#333",
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                       }}
                     >
                       <img
@@ -142,6 +159,7 @@ export default function Page() {
             )}
           </div>
 
+          {/* Detalhes do livro */}
           {livroSelecionado && (
             <div
               style={{
@@ -154,7 +172,7 @@ export default function Page() {
                 boxShadow: "-3px 0 5px rgba(0, 0, 0, 0.2)",
                 zIndex: 10,
                 overflowY: "auto",
-                backgroundColor: "black",
+                backgroundColor: "#240046",
               }}
             >
               <button
@@ -190,6 +208,7 @@ export default function Page() {
                     height: "40px",
                     border: "none",
                     borderRadius: "5px",
+                    background: "#430372"
                   }}
                 >
                   Ler Agora

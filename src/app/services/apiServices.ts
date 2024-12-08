@@ -29,3 +29,23 @@ export const fetchLivrosOrganizados = async () => {
     throw error;
   }
 };
+
+/**
+ * Função para abrir o livro em uma nova aba.
+ * - Tenta abrir o PDF se disponível.
+ * - Caso contrário, tenta abrir a página HTML.
+ */
+export const abrirLivro = (formats: any) => {
+  const pdfUrl = formats["application/pdf"];
+  const htmlUrl = formats["text/html; charset=utf-8"] || formats["text/html"];
+
+  if (pdfUrl) {
+    window.open(pdfUrl, '_blank'); // Abre o PDF em uma nova aba
+  } else if (htmlUrl) {
+    window.open(htmlUrl, '_blank'); // Abre a página HTML do livro
+  } else {
+    alert("Formato de leitura não disponível para este livro.");
+  }
+};
+
+//teste
