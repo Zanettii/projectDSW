@@ -134,7 +134,7 @@ export default function Page() {
               <p className="text-white">
                 <strong>Idiomas:</strong> {livroSelecionado.languages.join(", ")}
               </p>
-              <a href="./leitura" className="text-white">
+              <a href="./leitura-atual" className="text-white">
                 <button className="float-right cursor-pointer w-52 h-10 border-none rounded bg-[#430372]">
                   Ler Agora
                 </button>
