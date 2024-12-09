@@ -4,7 +4,7 @@ import dados from '../Interfaces/dadosTipoConquistas'
 export class Usuario {
     private userName: string;
     private nome: string;
-    private idade: number;
+    private anoNascimento: Date;
     private avatar: string;
     private avatarIcone: string[];
     private conquistas: string[];
@@ -15,7 +15,7 @@ export class Usuario {
     constructor(
         userName: string,
         nome: string,
-        idade: number,
+        anoNascimento: Date,
         avatar: string,
         avatarIcone: string[] = [],
         conquistas: string[] = [],
@@ -25,7 +25,7 @@ export class Usuario {
     ) {
         this.userName = userName;
         this.nome = nome;
-        this.idade = idade;
+        this.anoNascimento = anoNascimento;
         this.avatar = avatar;
         this.avatarIcone = avatarIcone;
         this.conquistas = conquistas;
@@ -43,8 +43,8 @@ export class Usuario {
         return this.nome;
     }
 
-    public getIdade(): number {
-        return this.idade;
+    public getIdade(): Date {
+        return this.anoNascimento;
     }
 
     public getAvatar(): string {
@@ -80,8 +80,8 @@ export class Usuario {
         this.nome = nome;
     }
 
-    public setIdade(idade: number): void {
-        this.idade = idade;
+    public setIdade(anoNascimento: Date): void {
+        this.anoNascimento = anoNascimento;
     }
 
     public setAvatar(avatar: string): void {

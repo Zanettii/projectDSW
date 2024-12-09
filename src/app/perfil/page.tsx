@@ -12,7 +12,7 @@ interface CategoriaProps {
 const user = {
   userName: userDados.id,
   nome: userDados.nome,
-  idade: userDados.idade,
+  anoNascimento: userDados.anoNascimento,
   avatar: userDados.avatar,
   avatarIcon: userDados.avatarIcone,
   amigos: userDados.friends,

@@ -4,7 +4,7 @@ export const user = {
     id: 'verbix',
     email: 'verbix@gmail.com',
     nome: 'Verbix App',
-    idade: 20,
+    anoNascimento: '20/10/2004',
     avatar: "Frederico",
     avatarIcone: personagens['Frederico'].imgs,
     conquistas: ['G12548', 'A56789'],
