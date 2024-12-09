@@ -12,6 +12,11 @@
       "static/css/app/not-found.css",
       "static/chunks/app/not-found.js"
     ],
+    "/leitura-atual/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/leitura-atual/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -27,11 +32,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/biblioteca/page.js"
-    ],
-    "/leitura-atual/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/leitura-atual/page.js"
     ],
     "/ranking/page": [
       "static/chunks/webpack.js",

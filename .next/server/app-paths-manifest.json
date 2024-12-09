@@ -1,7 +1,5 @@
 {
-  "/page": "app/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/biblioteca/page": "app/biblioteca/page.js",
   "/leitura-atual/page": "app/leitura-atual/page.js",
-  "/ranking/page": "app/ranking/page.js"
+  "/ranking/page": "app/ranking/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js"
 }
