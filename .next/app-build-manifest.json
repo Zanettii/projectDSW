@@ -23,21 +23,21 @@
       "static/css/app/_not-found/page.css",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/biblioteca/page": [
+    "/ranking/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/biblioteca/page.js"
+      "static/css/app/ranking/page.css",
+      "static/chunks/app/ranking/page.js"
     ],
     "/leitura-atual/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/leitura-atual/page.js"
     ],
-    "/ranking/page": [
+    "/biblioteca/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/ranking/page.css",
-      "static/chunks/app/ranking/page.js"
+      "static/chunks/app/biblioteca/page.js"
     ]
   }
 }
