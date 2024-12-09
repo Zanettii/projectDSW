@@ -3,6 +3,7 @@
 import { user } from "../../public/dadosBase/userDados"
 import { useEffect, useState } from "react";
 import { fetchLivrosAPI } from "../app/services/books"; // Certifique-se de ajustar o caminho
+import { fetchLivrosOrganizados } from "../app/services/apiServices";
 
 
 export interface Livro {
@@ -20,15 +21,17 @@ export interface Livro {
 }
 
 export default function MenuPrincipal() {
+  const [leiturasAvaliadas, setLeiturasAvaliadas] = useState<any[]>([]);
+  const [livroSelecionado, setLivroSelecionado] = useState<string | null>(null);
   const [livros, setLivros] = useState<Livro[]>([]);
   const [erro, setErro] = useState<string | null>(null);
   const [carregandoLivros, setCarregandoLivros] = useState<boolean>(true);
 
-  // Dados simulados para a seção "Continue de onde parou"
-  const livrosLendo = [
-    { id: 1, title: "Dom Quixote", progresso: 65, img: "/dom-quixote.jpg" },
-    { id: 2, title: "1984", progresso: 30, img: "/1984.jpg" },
-    { id: 3, title: "A Revolução dos Bichos", progresso: 90, img: "/revolucao.jpg" },
+  
+  const leiturasComProgresso = [
+    { id: 1, pages_read: 120, total_pages: 300 },
+    { id: 2, pages_read: 50, total_pages: 100 },
+    { id: 3, pages_read: 200, total_pages: 250 },
   ];
 
   useEffect(() => {
@@ -45,6 +48,27 @@ export default function MenuPrincipal() {
 
     carregarLivros();
   }, []);
+  
+  useEffect(() => {
+    const carregarLivros = async () => {
+      try {
+        const { leiturasAvaliadas } = await fetchLivrosOrganizados();
+        setLeiturasAvaliadas(leiturasAvaliadas);
+      } catch (error) {
+        console.error("Erro ao carregar os livros:", error);
+      }
+    };
+
+    carregarLivros();
+  }, []);
+
+  const handleAbrirLivro = (url: string) => {
+    setLivroSelecionado(url);
+    setTimeout(() => {
+      setLivroSelecionado(null); 
+      window.open(url, "_blank");
+    }, 2000);
+  };
 
   return (
     <div className="p-6">
@@ -53,27 +77,43 @@ export default function MenuPrincipal() {
       {/* Seção de Continue de Onde Parou */}
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Continue de onde parou</h2>
-        <div className="flex gap-6 overflow-x-auto">
-          {livrosLendo.map((livro) => (
-            <div key={livro.id} className="flex-shrink-0 w-48">
+          <div className="flex gap-6 overflow-x-auto">
+            {leiturasAvaliadas.slice(0, 3).map((leitura, index) => {
+            const progresso = leiturasComProgresso[index] || { pages_read: 0, total_pages: 1 };
+            const progressoPorcentagem = Math.min(
+            100,
+            (progresso.pages_read / progresso.total_pages) * 100
+            );
+
+          return (
+            <div key={leitura.id} className="flex-shrink-0 w-48">
               <img
-                src={livro.img}
-                alt={livro.title}
+                src={leitura.formats?.["image/jpeg"] || "/placeholder.png"}
+                alt={`Capa de ${leitura.title}`}
                 className="w-full h-64 object-cover rounded-lg shadow-md"
               />
               <div className="mt-2">
-                <h3 className="font-semibold">{livro.title}</h3>
-                <div className="bg-gray-300 w-full h-2 rounded-full mt-1">
-                  <div
-                    className="bg-green-500 h-full rounded-full"
-                    style={{ width: `${livro.progresso}%` }}
-                  ></div>
-                </div>
-                <p className="text-sm text-gray-600 mt-1">{livro.progresso}% concluído</p>
-              </div>
+              <h3 className="font-semibold">{leitura.title}</h3>
+              <div className="bg-gray-300 w-full h-2 rounded-full mt-1">
+              <div
+                className="bg-green-500 h-full rounded-full"
+                style={{ width: `${progressoPorcentagem}%` }}
+              ></div>
             </div>
-          ))}
-        </div>
+            <p className="text-sm text-gray-600 mt-1">
+              {progressoPorcentagem.toFixed(0)}% concluído
+            </p>
+          </div>
+          <button
+                  onClick={() => handleAbrirLivro(leitura.formats["text/html"])}
+                  className="bg-accent text-white py-2 px-4 rounded mt-4 hover:bg-accent-dark"
+                >
+                  Ler agora
+                </button>
+          </div>
+          );
+          })}
+          </div>
       </section>
 
       {/* Livros Recomendados */}
