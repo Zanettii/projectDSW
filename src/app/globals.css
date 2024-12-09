@@ -77,6 +77,17 @@
   }
 }
 
+/* Ocultar a barra de rolagem */
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Para navegadores não-webkit (Firefox) */
+.scroll-hidden {
+  scrollbar-width: none;
+}
+
+
 main {
   @apply h-full min-h-screen flex-1 overflow-y-auto overflow-x-hidden p-6;
 }

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { fetchLivrosAPI } from "../services/books";
 
 interface Livro {
   id: number;
@@ -15,15 +16,6 @@ interface Livro {
   formats: { [key: string]: string }; // URLs dos formatos do livro
 }
 
-interface ApiResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: Livro[];
-}
-
-const API_URL = "https://gutendex.com/books";
-
 export default function Page() {
   const [livros, setLivros] = useState<Livro[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,11 +26,7 @@ export default function Page() {
   const fetchLivros = async (query: string = "") => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}?languages=pt${query}`);
-      if (!response.ok) {
-        throw new Error("Erro ao buscar dados da API");
-      }
-      const data: ApiResponse = await response.json();
+      const data = await fetchLivrosAPI(query);
       setLivros(data.results);
     } catch (error) {
       console.error("Erro ao carregar os livros:", error);
@@ -67,14 +55,14 @@ export default function Page() {
 
   return (
     <div className="bg-secondary">
-      <main style={{ display: "flex", flexDirection: "column", flexGrow: 1, overflowY: "hidden" }}>
+      <main className="flex flex-col flex-grow overflow-hidden">
         {/* Barra de busca */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px" }}>
-          <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="flex justify-between items-center p-5">
+          <div className="flex items-center">
             <input
               type="text"
               placeholder="Buscar"
-              style={{ padding: "10px", width: "300px", border: "none", borderRadius: "10px", color: "black" }}
+              className="p-2.5 w-72 rounded-lg border-none text-black"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               onKeyDown={(e) => {
@@ -83,14 +71,7 @@ export default function Page() {
             />
             <button
               onClick={handleSearch}
-              style={{
-                marginLeft: "20px",
-                border: "1px solid",
-                borderRadius: "5px",
-                cursor: "pointer",
-                padding: "3px",
-                width: "100px",
-              }}
+              className="ml-5 border-2 rounded-lg cursor-pointer p-2.5 w-24 bg-gradient-to-r from-purple-500 to-purple-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300"
             >
               Pesquisar
             </button>
@@ -98,57 +79,28 @@ export default function Page() {
         </div>
 
         {/* Lista de livros */}
-        <div style={{ display: "flex", flexGrow: 2, padding: "50px", overflowY: "hidden" }}>
-          <div style={{ width: "100%", overflowY: "auto", maxHeight: "calc(100vh - 120px)" }}>
+        <div className="flex flex-grow p-5 overflow-hidden">
+          <div className="w-full overflow-auto max-h-[calc(100vh-100px)]">
             {loading ? (
-              <p>Carregando livros...</p>
+              <p className="text-white text-center">Carregando livros...</p>
             ) : (
-              <div style={{ display: "flex", overflowX: "auto", gap: "20px", padding: "10px" }}>
+              <div className="grid grid-cols-[repeat(auto-fill,_minmax(160px,_1fr))] gap-5 p-2.5">
                 {livros.map((livro) => (
                   <div
                     key={livro.id}
-                    className="livro"
-                    style={{
-                      flexShrink: 0,
-                      textAlign: "center",
-                      padding: "10px",
-                      cursor: "pointer",
-                    }}
+                    className="livro text-center cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-105"
                     onClick={() => handleLivroClick(livro)}
                   >
-                    <div
-                      style={{
-                        width: "140px",
-                        height: "200px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        overflow: "hidden",
-                        borderRadius: "5px",
-                        backgroundColor: "#f0f0f0",
-                      }}
-                    >
+                    <div className="w-36 h-52 flex justify-center items-center overflow-hidden rounded-lg bg-gray-800 shadow-lg">
                       <img
                         src={livro.formats["image/jpeg"] || "/placeholder.png"}
                         alt={livro.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <p
-                    style={{
-                      marginTop: '10px',
-                      width: '140px',
-                      fontSize: '14px',
-                      fontWeight: 'bold',
-                      color: 'white',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis'
-                    }}>{livro.title}</p>
+                    <p className="mt-2.5 w-36 text-sm font-bold text-white truncate">
+                      {livro.title}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -157,55 +109,33 @@ export default function Page() {
 
           {/* Detalhes do livro */}
           {livroSelecionado && (
-            <div
-              style={{
-                position: "fixed",
-                top: 0,
-                right: 0,
-                width: "30%",
-                padding: "20px",
-                height: "100vh",
-                boxShadow: "-3px 0 5px rgba(0, 0, 0, 0.2)",
-                zIndex: 10,
-                overflowY: "auto",
-                backgroundColor: "black",
-              }}
-            >
+            <div className="fixed top-0 right-0 w-1/3 p-5 h-screen shadow-lg z-10 overflow-auto bg-[#240046]">
               <button
                 onClick={handleCloseDescription}
-                style={{ float: "right", marginBottom: "10px", padding: "5px", width: "20px" }}
+                className="float-right mb-2.5 p-1 w-5 text-white"
               >
                 X
               </button>
               <img
                 src={livroSelecionado.formats["image/jpeg"] || "/placeholder.png"}
                 alt={livroSelecionado.title}
-                style={{ width: "50%", height: "auto" }}
+                className="w-1/2 h-auto"
               />
-              <h2 style={{ color: "white", textAlign: "center", fontSize: "20px", padding: "20px" }}>
+              <h2 className="text-white text-center text-xl py-5">
                 {livroSelecionado.title}
               </h2>
-              <p>
+              <p className="text-white">
                 <strong>Autor:</strong>{" "}
                 {livroSelecionado.authors.map((author) => author.name).join(", ") || "Desconhecido"}
               </p>
-              <p>
+              <p className="text-white">
                 <strong>Assuntos:</strong> {livroSelecionado.subjects.join(", ") || "Nenhum"}
               </p>
-              <p>
+              <p className="text-white">
                 <strong>Idiomas:</strong> {livroSelecionado.languages.join(", ")}
               </p>
-              <a href="./leitura">
-                <button
-                  style={{
-                    float: "right",
-                    cursor: "pointer",
-                    width: "200px",
-                    height: "40px",
-                    border: "none",
-                    borderRadius: "5px",
-                  }}
-                >
+              <a href="./leitura" className="text-white">
+                <button className="float-right cursor-pointer w-52 h-10 border-none rounded bg-[#430372]">
                   Ler Agora
                 </button>
               </a>

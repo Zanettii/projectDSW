@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AiOutlineClose, AiOutlineLogout, AiOutlineMenu } from "react-icons/ai";
 import { IoLibrary } from "react-icons/io5";
 import { FaBookOpen, FaTrophy } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { usePathname } from 'next/navigation';
 
 
@@ -38,8 +38,10 @@ const Sidebar = () => {
           <div className="flex items-center justify-between g-gray-800  border-white p-4 ">
   
             <button onClick={() => setIsCollapsed(!isCollapsed)} 
-            className="text-white-400 focus:outline-none">
-              {isCollapsed ? <AiOutlineMenu size={24} /> : <AiOutlineClose size={24} />}
+            className="text-white-400 focus:outline-none flex-row">
+              {isCollapsed ? (<AiOutlineMenu size={24} className="duration-300" />) :
+               (<div className="flex items-center"><FaArrowLeftLong size={24} className="duration-300" /><span className="ml-2 text-right">Fechar</span></div>)}  
+              
             </button>
           </div>
           <div className="flex-1 flex flex-col justify-between overflow-hidden " >

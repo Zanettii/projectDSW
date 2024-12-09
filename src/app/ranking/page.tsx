@@ -11,7 +11,7 @@ type RankingType = "amigos" | "geral";
 const user = {
   userName: userDados.id,
   nome: userDados.nome,
-  idade: userDados.idade,
+  idade: '',
   avatar: userDados.avatar,
   avatarIcon: userDados.avatarIcone,
   conquistas: userDados.conquistas,
@@ -128,7 +128,7 @@ const RankingPage = () => {
         </div>
 
         {/* Rankings Roláveis */}
-        <section className={styles.rankingsScrollable}>
+        <section className={`${styles.rankingsScrollable} scroll-hidden`}>
           <div className={styles.rankingsCabeca}>
             <div className={styles.rankingCabeca}>
               <span className={styles.rank}>Posição</span>
@@ -136,11 +136,11 @@ const RankingPage = () => {
               <span className={styles.scoreCabeca}>Pontuação</span>
             </div>
           </div>
-          <div className={styles.rankings}>
+          <div className={`${styles.rankings} scroll-hidden`}>
             {top20Rankings.map((item, index) => (
               <div
                 key={item.id}
-                className={`${styles.rankingItem} ${index < 3 ? styles.topRanking : ""} ${item.id === user.userName ? styles.highlightUser : ""}`}
+                className={`${styles.rankingItem} ${index < 3 ? styles.topRanking : ""} ${item.id === user.userName ? styles.highlightUser : ""} scroll-hidden`}
               >
                 <span className={styles.rank}>{index + 1}º</span>
                 <span className={styles.imgage}><img src={`/Personagens/${item.avatar}/${item.avatar}Perfil.png`} alt="Avatar" className="w-8 h-8 rounded-full border-2 border-[var(--text-title)] -mb-[5px]" /></span>
