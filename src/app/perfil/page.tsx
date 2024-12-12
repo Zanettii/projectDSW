@@ -4,7 +4,10 @@ import Reac, {useState} from 'react';
 import { user as userDados, userMissao, userPosts } from '../../../public/dadosBase/userDados';
 import { achievements as conq } from '../../../public/dadosBase/conquistas';
 import { rankings as rankingsData } from "../ranking/rankingsData";
+import MissaoCardPerfil   from "@/components/MissaoCard";
+import ContainerCategorias  from "@/components/GenericoPerfil";
 import PostCard from '../../components/PostCard'
+import { title } from 'process';
 
 
 interface CategoriaProps {
@@ -36,17 +39,14 @@ const categorias: CategoriaProps[] = [
   {
     nome: 'Amigos',
     html:  (
-      <div>
-        <h3 className="mb-2 text-lg font-semibold text-[var(--text-title)]">Seus Amigos</h3>
-        <hr />
-        <div className="grid grid-cols-4 gap-4 mt-8">
+      <ContainerCategorias title="Seus Amigos" qtCompLinha={5}>
           {userDados.friends.map((id) => {
             const amigo = rankingsData.Páginas.amigos.find((rank) => rank.id === id); // Ajusta o caminho
             if (!amigo) return null;
             return (
               <div
                 key={amigo.id}
-                className="flex flex-col items-center  object-cover "
+                className="flex flex-col items-center  object-cover cursor-pointer"
               >
                 <img
                   src={`/Personagens/${amigo.avatar}/${amigo.avatar}Perfil.png`} // Caminho da imagem
@@ -57,37 +57,30 @@ const categorias: CategoriaProps[] = [
               </div>
             );
           })}
-        </div>
-      </div>
+       </ContainerCategorias>
     ),
   },
   {
     nome: 'Conquistas',
     html:  (
-      <div>
-        <h3 className="mb-2 text-lg font-semibold text-[var(--text-title)]">Conquistas</h3>
-        <hr />
-        <div className="flex-col">
-            <div className="grid grid-cols-4 gap-4 flex-col mt-8 ">
+      <ContainerCategorias title="Conquistas" qtCompLinha={5}>
             {user.conquistas.map((id) => (
-              <div key={id} className="flex flex-col justify-between items-center text-center rounded-md bg-[var(--accent2)] p-2 w-[110px]  h-[130px]">
+              <div key={id} className="flex flex-col justify-between items-center text-center rounded-md bg-gradient-to-t from-[var(--accent2)] via-[var(--accent2)] to-[var(--accent2)] transition-all duration-300 ease-in-out hover:bg-gradient-to-t hover:from-[var(--accent3)] hover:via-[var(--accent2)] hover:to-purple-300 p-2 w-[100px]  h-[145px] cursor-pointer ">
                 <img
                   src={`/conquistas/${id}.png`}
                   alt={`Conquista ${id}`}
-                  className="w-[75px] h-[75px] object-cover"
+                  className="w-[90px] h-[90px] object-cover"
                 />
                 <p className="mt-1 text-[12px] text-[var(--text-title)]">{conq[id].name}</p>
               </div>
             ))}
-            </div>
-      </div>
-      </div>
+          </ContainerCategorias>
     ),
   },
     {
       nome: 'Posters',
       html: (
-        <div className="grid grid-cols-1 items-center text-center gap-12 flex-col mt-1 overflow-y-auto max-h-[360px]  scroll-hidden">
+        <ContainerCategorias title="Posteres" qtCompLinha={2}>
           {userPosts.map((post) => (
             <PostCard
               key={post.nome} 
@@ -98,72 +91,26 @@ const categorias: CategoriaProps[] = [
               data={post.data}
             />
           ))}
-        </div>
+        </ContainerCategorias>
       ),
     },
     
   {
     nome: 'Missões',
     html: (
-      <div>
-        <h3 className="mb-2 text-lg font-semibold text-[var(--text-title)]">Missões</h3>
-        <hr />
-        <div className="flex-col">
-        <div className="grid grid-cols-3 gap-4 mt-4 overflow-visible overflow-y-auto max-h-[300px] scroll-hidden">
-  {userMissao.map((missao) => (
-    
-    <div
-    key={missao.id}
-    className="flex flex-col justify-between items-center rounded-md p-2 w-[145px] h-[180px] bg-[var(--background)] transition-all duration-300 ease-in-out hover:scale-105 hover:h-[190px] hover:w-[150px] hover:bg-opacity-80 hover:bg-[rgba(255, 255, 255, 0.2)]" // Efeito de hover com aumento de escala e tamanho
-    style={{
-      background: `
-        linear-gradient(to top, rgba(35, 35, 35, 0.8), rgba(200, 200, 200, 0.2))`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      filter: 'brightness(0.8) saturate(1.3) contrast(1.1)',
-    }}
-  >
-    <div className="relative w-full h-[130px] flex justify-center items-center overflow-hidden">
-      <img
-        src={`/Missoes/${missao.icone}.png`}
-        alt={`Missões ${missao.icone}`}
-        className="w-[100px] h-[100px] object-cover" // A imagem preenche a div sem distorcer
-      />
-    </div>
-    <div className="text-center z-10">
-      <p
-        className="text-[12px] font-semibold text-white"
-        style={{
-          textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7)', // Adiciona sombra ao texto
-        }}
-      >
-        {missao.nome} | {missao.tipo}
-      </p>
-      <p
-        className="text-[12px] font-semibold text-white mt-2"
-        style={{
-          textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7)', // Adiciona sombra ao texto
-        }}
-      >
-        {missao.dataFim}
-      </p>
-    </div>
-    {/* Barra de progresso */}
-    {missao.progresso < 100 && missao.progresso >= 0 && (
-      <div className="w-full bg-gray-300 rounded-full h-2.5 mt-2">
-        <div
-          className="bg-[var(--accent2)] h-2.5 rounded-full"
-          style={{ width: `${missao.progresso}%` }}
-        ></div>
-      </div>
-    )}
-  </div>
-  
-  ))}
-</div>
-
-        </div>
-      </div>
+      <ContainerCategorias title="Missões" qtCompLinha={4}>
+          {userMissao.map((missao) => (
+            <MissaoCardPerfil
+                key={missao.id}
+                id={missao.id} 
+                nome={missao.nome} 
+                tipo={missao.tipo}
+                dataFim={missao.dataFim}
+                icone={`/Missoes/${missao.icone}.png`} 
+                progresso={missao.progresso}
+            />
+          ))}
+      </ContainerCategorias>
     )
   },    
 ];
@@ -175,7 +122,7 @@ export default function Page() {
   const categoriaAtual = categorias.find((cat) => cat.nome === selectedCategory);
 
   return (
-    <div className="flex gap-[10px] p-4 relative pt-[1rem] overflow-hidden bg-[var(--secondary)] text-[var(--text-title)] rounded-lg h-[500px] ">
+    <div className="flex gap-[10px] p-4 position: static  pt-[1rem] overflow-hidden bg-[var(--secondary)] text-[var(--text-title)] rounded-lg h-100vh  max-h-[85vh]">
       <section id="perfil" className="w-2/5 flex flex-col items-center pt-4  rounded-lg bg-[var(--primary)] ">
         <div className="text-center">
         <div className="relative">
@@ -214,15 +161,15 @@ export default function Page() {
           <div className="flex gap-4 py-1 text-center text-[var(--text-title)]">
           <div className="max-w-[160px] w-[100px] min-h-[50px]">
             <p className="mb-1 mt-2 text-base font-semibold text-[15px]">Livros</p>
-            <p className="mt-1 text-base text-[18px]">{userAvanco.livro}</p>
+            <p className="mt-1 text-base text-[19px]">{userAvanco.livro}</p>
           </div>
           <div className="max-w-[160px] w-[100px] min-h-[50px]">
             <p className="mb-1 mt-2 text-base font-semibold text-[15px]">Páginas</p>
-            <p className="mt-1 text-base text-[18px]">{userAvanco.paginas}</p>
+            <p className="mt-1 text-base text-[19px]">{userAvanco.paginas}</p>
           </div>
           <div className="max-w-[160px] w-[100px] min-h-[50px]">
             <p className="mb-1 mt-2 text-base font-semibold text-[15px] ">Missões</p>
-            <p className="mt-1 text-base text-[18px]">{userAvanco.missoes}</p>
+            <p className="mt-1 text-base text-[19px]">{userAvanco.missoes}</p>
           </div>
           </div>
           <hr />
@@ -230,7 +177,7 @@ export default function Page() {
             <p className='mt-[0px] mb-[-2px] text-[var(--text-title)] text-[18px] font-semibold'>Conquistas Principais</p>
             <div className="grid grid-cols-3 gap-4 flex-col mt-[10px]">
             {user.conquistas.slice(0, 3).map((id) => (
-              <div key={id} className="flex flex-col items-center rounded-md bg-[var(--accent2)] p-2 ">
+              <div key={id} className="flex flex-col items-center rounded-md bg-[var(--accent2)] p-2 cursor-pointer bg-gradient-to-t from-[var(--accent3)] via-[var(--accent2)] to-purple-500 transition-all duration-300 ease-in-out hover:bg-gradient-to-t hover:from-[var(--accent3)] hover:via-[var(--accent2)] hover:to-purple-300">
                 <img
                   src={`/conquistas/${id}.png`}
                   alt={`Conquista ${id}`}
@@ -248,12 +195,16 @@ export default function Page() {
       {/* Conquistas e Missão */}
       <section id="conquistas" className="w-3/5 flex flex-col items-center pt-8  rounded-lg bg-[var(--primary)]">
           {/* Lista de Categorias */}
-          <aside className="w-full flex justify-center items-center mt-[-27px]">
+          <aside className="w-full flex justify-center items-center mt-[-27px] mb-[-10px]">
             <div className="w-full flex justify-center items-center gap-4 bg-[var(--primary)] py-2 rounded-lg shadow-md">
               {categorias.map((categoria) => (
                 <div key={categoria.nome}>
                   <button
-                    className="py-2 px-6 rounded-md bg-[var(--accent)] text-white font-semibold hover:bg-[var(--accent-dark)] transition duration-300"
+                    className={`py-2 px-6 rounded-md font-semibold transition duration-300 ${
+                      selectedCategory === categoria.nome
+                        ? 'bg-[var(--accent-dark)] text-white'
+                        : 'bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)]'
+                    }`}
                     onClick={() => setSelectedCategory(categoria.nome)}
                   >
                     {categoria.nome}
@@ -265,7 +216,7 @@ export default function Page() {
 
 
           {/* Conteúdo Dinâmico */}
-            <main className="w-3/4">
+            <main className="max-w-[95vh] min-w-[95vh]">
               {categoriaAtual?.html || <p>Selecione uma categoria</p>}
             </main>
       </section>
