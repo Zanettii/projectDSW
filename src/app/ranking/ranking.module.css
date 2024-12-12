@@ -24,6 +24,7 @@
   color: var(--text-title);
   border-radius: 8px;
   height: 500px;
+  height: 85vh;
 
 }
 
@@ -56,6 +57,7 @@
   transition: top 0.3s ease-in-out;
   border-radius: 8px;
   border-bottom: 0px solid var(--secondary);
+
 }
 
 /* Seção das Categorias (Lado esquerdo) */
@@ -126,11 +128,11 @@
 .rankingsContainer {
   margin-top: 1px;
   padding: 0 1rem;
-  max-height: 450px;
   flex-direction: row;
   display: flex;
   justify-content: space-between; 
   width: 100%;
+  height: 71vh;
 }
 
 .rankings {
@@ -245,11 +247,12 @@
   flex-direction: column;
   border-radius: 8px;
   margin-right: 5px;
+  justify-content: space-between;
 }
 
 .rankingsScrollable {
   flex: 1; /* A lista de rankings também ocupará 50% da largura */
-  max-height: 410px;
+
   overflow-y: auto;
   padding: 1rem;
   background-color: var(--primary);
